@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-LATEST-2026-08-14-SAFE-RESTORE-R112";
+  const VERSION = "LIMO-ALL-VIDEOS-RESTORE-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -22,19 +22,19 @@
   const assets = {
     jordan: ["/assets/jordan-q4-01.webp", "/assets/jordan-q4-02.webp", "/assets/jordan-q4-03.webp"],
     qipai: ["/assets/qipai-guose-01.webp", "/assets/qipai-guose-02.webp", "/assets/qipai-guose-03.webp", "/assets/qipai-guose-04.webp"],
-    qipaiPreview: ["/assets/qipai-tang-guanglv.mp4", "/assets/qipai-ming-luoshenzhu.mp4", "/assets/qipai-han-chabai.mp4", "/assets/qipai-song-tianshuibi.mp4"],
+    qipaiPreview: ["/assets/qipai-tang-guanglv-final-web.mp4", "/assets/qipai-ming-luoshenzhu-final-web.mp4", "/assets/qipai-han-chabai-final-web.mp4", "/assets/qipai-song-tianshuibi-final-web.mp4"],
     nb: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
-    nbPreview: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
+    nbPreview: ["/assets/hero-reel-nb.mp4", "/assets/hero-reel-nb-2.mp4", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
     charmant: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
     charmantPreview: ["/assets/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
     mirageDianjing: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
-    mirageDianjingPreview: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
+    mirageDianjingPreview: ["/assets/mirage-dianjing-white-video.mp4", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-dark-video.mp4", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageFashion: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
-    mirageFashionPreview: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
+    mirageFashionPreview: ["/assets/mirage-fashion-video.mp4", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
     gaote: ["/assets/gaote-ride-01.webp", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
     gaotePreview: ["/assets/gaote-ride-video-web.mp4", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
     nsve: ["/assets/nsve-baiyan-01.webp", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
-    nsvePreview: ["/assets/nsve-baiyan-01.webp", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
+    nsvePreview: ["/assets/nsve-baiyan-video-web.mp4", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
     shuijingfang: ["/assets/shuijingfang-changsha-01.webp", "/assets/shuijingfang-changsha-02.webp", "/assets/shuijingfang-changsha-03.png"],
     linglongtai: ["/assets/linglongtai-thumb-01.png", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"],
   };
@@ -121,7 +121,7 @@
     if (!list.querySelector(".minimax-h3-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card project-0 reveal is-visible minimax-h3-card";
-      card.dataset.previewSrc = "/assets/mirage-01-cover.webp";
+      card.dataset.previewSrc = "/assets/minimax-h3-luxury-glasses-tvc.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-01-cover.webp" alt="MiniMax H3" loading="lazy" decoding="async">
         <div class="project-badge" aria-hidden="true">NEW</div>
@@ -136,7 +136,7 @@
     const currentCards = [...list.querySelectorAll(".project-card")];
     const mainMirage = currentCards.find((card) => card.classList.contains("project-1")) || currentCards[1];
     if (mainMirage) {
-      mainMirage.dataset.previewSrc = "/assets/mirage-02-cover.webp";
+      mainMirage.dataset.previewSrc = "/assets/hero-reel-mirage-ai.mp4";
       mainMirage.querySelector(".project-meta")?.remove();
       mainMirage.innerHTML = `
         <img class="project-video" src="/assets/mirage-02-cover.webp" alt="\u9B45\u5F71 AI \u89C6\u9891">
@@ -151,7 +151,7 @@
     if (!list.querySelector(".mirage-new-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card reveal is-visible mirage-new-card";
-      card.dataset.previewSrc = "/assets/mirage-03-cover.webp";
+      card.dataset.previewSrc = "/assets/hero-reel-mirage-green.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-03-cover.webp" alt="\u9B45\u5F71\u65B0\u54C1">
         <div class="project-badge" aria-hidden="true">HOT</div>
@@ -244,7 +244,7 @@
     }
     setSummary(tanwood, "2025.10", text.mirageTanwoodTitle, text.mirageTanwoodDesc);
     const tanwoodWrap = tanwood?.querySelector(".case-thumbs");
-    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-03-cover.webp", "mirage-tanwood-thumb", "/assets/mirage-03-cover.webp", 0);
+    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-03-cover.webp", "mirage-tanwood-thumb", "/assets/hero-reel-mirage-tanwood.mp4", 0);
 
     const nsve = rowByDate("2025.07");
     setSummary(nsve, null, text.nsveTitle);
@@ -332,38 +332,20 @@
     ];
 
     document.querySelectorAll(".portrait-reel-card").forEach((card, index) => {
-      if (card.dataset.staticCoverReady === VERSION) return;
+      if (card.dataset.videoRestoreReady === VERSION) return;
       const video = card.querySelector(".portrait-reel-video");
       if (!video) {
-        card.dataset.staticCoverReady = VERSION;
+        card.dataset.videoRestoreReady = VERSION;
         return;
       }
       const source = video.querySelector("source")?.getAttribute("src") || "";
-      const title = card.querySelector("figcaption")?.textContent?.trim() || "作品封面";
-      const coverSrc = heroCovers[index % heroCovers.length];
-      const img = document.createElement("img");
-      img.className = "portrait-reel-cover";
-      img.src = coverSrc;
-      img.alt = title;
-      img.loading = index === 0 ? "eager" : "lazy";
-      img.decoding = "async";
       card.dataset.previewSrc = source;
-      if (/hero-reel-nb(?:-2)?\.mp4$/i.test(source)) {
-        card.dataset.staticPreviewSrc = coverSrc;
-        card.setAttribute("aria-label", `查看${title}图片`);
-        const openStaticPreview = (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          openMedia(card.dataset.staticPreviewSrc);
-        };
-        card.addEventListener("click", openStaticPreview, true);
-        card.addEventListener("keydown", (event) => {
-          if (event.key !== "Enter" && event.key !== " ") return;
-          openStaticPreview(event);
-        }, true);
-      }
-      video.replaceWith(img);
-      card.dataset.staticCoverReady = VERSION;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = index === 0 ? "metadata" : "none";
+      video.poster = video.poster || heroCovers[index % heroCovers.length];
+      card.dataset.videoRestoreReady = VERSION;
     });
 
     document.querySelectorAll(".portrait-reel-video").forEach((video) => {

@@ -540,7 +540,9 @@
     section.innerHTML = `
       <div class="vertical-work-grid" aria-hidden="true"></div>
       <div class="motion-sites-bg" aria-hidden="true">
-        <img src="/assets/work-wall-diamond-glasses-r1.webp" alt="" loading="lazy" decoding="async">
+        <video muted autoplay loop playsinline preload="metadata" poster="/assets/mirage-01-cover.jpg">
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4" type="video/mp4">
+        </video>
         <div class="motion-sites-overlay"></div>
       </div>
       <div class="shell visual-archive-head">

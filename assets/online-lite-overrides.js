@@ -9,9 +9,6 @@
     ["/assets/hero-reel-mirage-white.mp4", "/assets/mirage-dianjing-thumb-01.jpg"],
     ["/assets/hero-reel-nb.mp4", "/assets/nb-shoes-01.webp"],
     ["/assets/hero-reel-nb-2.mp4", "/assets/nb-shoes-02.webp"],
-    ["/assets/charmant-video.mp4", "/assets/charmant-01.webp"],
-    ["/assets/gaote-ride-video-web.mp4", "/assets/gaote-ride-01.webp"],
-    ["/assets/linglongtai-tvc-h264.mp4", "/assets/linglongtai-thumb-01.png"],
     ["/assets/mirage-dianjing-dark-video.mp4", "/assets/mirage-dianjing-thumb-04.webp"],
     ["/assets/mirage-dianjing-white-video.mp4", "/assets/mirage-dianjing-thumb-01.jpg"],
     ["/assets/mirage-fashion-video.mp4", "/assets/mirage-fashion-thumb-01.jpg"],
@@ -32,6 +29,8 @@
   };
 
   const fallbackFor = (src) => fallbackMap.get(normalizePath(src)) || "";
+
+  const isVideo = (src) => /\.(mp4|webm|mov)(\?|$)/i.test(src || "");
 
   const showImageLightbox = (src) => {
     if (!src) return;
@@ -70,7 +69,7 @@
 
     document.querySelectorAll("[data-preview-src]").forEach((item) => {
       const fallback = fallbackFor(item.dataset.previewSrc);
-      if (fallback) item.dataset.previewSrc = fallback;
+      if (fallback && isVideo(item.dataset.previewSrc)) item.dataset.previewSrc = fallback;
     });
   };
 

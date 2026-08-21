@@ -22,17 +22,17 @@
   const assets = {
     jordan: ["/assets/jordan-q4-01.webp", "/assets/jordan-q4-02.webp", "/assets/jordan-q4-03.webp"],
     qipai: ["/assets/qipai-guose-01.webp", "/assets/qipai-guose-02.webp", "/assets/qipai-guose-03.webp", "/assets/qipai-guose-04.webp"],
-    qipaiPreview: ["/assets/qipai-guose-01.webp", "/assets/qipai-guose-02.webp", "/assets/qipai-guose-03.webp", "/assets/qipai-guose-04.webp"],
+    qipaiPreview: ["/assets/qipai-tang-guanglv.mp4", "/assets/qipai-ming-luoshenzhu.mp4", "/assets/qipai-han-chabai.mp4", "/assets/qipai-song-tianshuibi.mp4"],
     nb: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
     nbPreview: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
     charmant: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
-    charmantPreview: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
+    charmantPreview: ["/assets/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
     mirageDianjing: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageDianjingPreview: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageFashion: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
     mirageFashionPreview: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
     gaote: ["/assets/gaote-ride-01.webp", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
-    gaotePreview: ["/assets/gaote-ride-01.webp", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
+    gaotePreview: ["/assets/gaote-ride-video-web.mp4", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
     nsve: ["/assets/nsve-baiyan-01.webp", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
     nsvePreview: ["/assets/nsve-baiyan-01.webp", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
     shuijingfang: ["/assets/shuijingfang-changsha-01.webp", "/assets/shuijingfang-changsha-02.webp", "/assets/shuijingfang-changsha-03.png"],
@@ -165,7 +165,7 @@
 
     const charmant = list.querySelector(".project-2");
     if (charmant) {
-      charmant.dataset.previewSrc = "/assets/charmant-01.webp";
+      charmant.dataset.previewSrc = "/assets/charmant-video.mp4";
       charmant.innerHTML = `
         <img class="project-video" src="/assets/charmant-01.webp" alt="\u590F\u8499" loading="lazy" decoding="async">
         <div class="project-shade"></div>
@@ -177,7 +177,7 @@
 
     const linglongtai = list.querySelector(".project-3");
     if (linglongtai) {
-      linglongtai.dataset.previewSrc = "/assets/linglongtai-thumb-01.png";
+      linglongtai.dataset.previewSrc = "/assets/linglongtai-tvc-h264.mp4";
       linglongtai.innerHTML = `
         <img class="project-video" src="/assets/mirage-aigc-tv-cover.webp" alt="\u9B45\u5F71 AIGC TV \u5E7F\u544A\u7247">
         <div class="project-shade"></div>
@@ -256,7 +256,7 @@
 
     const linglongtai = rowByDate("2025.04");
     setSummary(linglongtai, null, text.linglongtaiTitle);
-    setThumbs(linglongtai, assets.linglongtai, "linglongtai-thumb", ["/assets/linglongtai-thumb-01.png", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"]);
+    setThumbs(linglongtai, assets.linglongtai, "linglongtai-thumb", ["/assets/linglongtai-tvc-h264.mp4", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"]);
 
     rows().forEach((row, index) => {
       row.style.setProperty("--stagger-index", index);

@@ -2936,7 +2936,8 @@
   background:#061423!important;
 }
 
-.motion-sites-bg video{
+.motion-sites-bg video,
+.motion-sites-bg img{
   width:100%!important;
   height:100%!important;
   display:block!important;
@@ -2965,7 +2966,8 @@
 }
 
 @media (width<=900px){
-  .motion-sites-bg video{
+  .motion-sites-bg video,
+  .motion-sites-bg img{
     object-position:center center!important;
     opacity:.8!important;
   }
@@ -2984,7 +2986,8 @@
 }
 
 /* R74: use MotionSites Animated Background 104800 with cover framing. */
-.motion-sites-bg video{
+.motion-sites-bg video,
+.motion-sites-bg img{
   object-fit:cover!important;
   object-position:center center!important;
   opacity:.82!important;
@@ -2998,7 +3001,8 @@
 }
 
 /* R76: separate the archive works from the animated background. */
-.motion-sites-bg video{
+.motion-sites-bg video,
+.motion-sites-bg img{
   opacity:.62!important;
   filter:blur(2px) saturate(.92) contrast(1.02) brightness(.82)!important;
   transform:scale(1.02)!important;
@@ -3061,7 +3065,8 @@
 }
 
 /* R83: actual audit fix - remove hidden darkeners, grid lines, and archive helper copy. */
-.motion-sites-bg video{
+.motion-sites-bg video,
+.motion-sites-bg img{
   opacity:.9!important;
   filter:saturate(1.02) contrast(1.04) brightness(.96)!important;
   transform:none!important;
@@ -3083,7 +3088,8 @@
 }
 
 @media (width<=900px){
-  .motion-sites-bg video{
+  .motion-sites-bg video,
+  .motion-sites-bg img{
     opacity:.86!important;
     filter:saturate(1) contrast(1.03) brightness(.94)!important;
     transform:none!important;

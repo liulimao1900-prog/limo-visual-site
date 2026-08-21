@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-FEATURED-DIANJING-R1";
+  const VERSION = "LIMO-FEATURED-02-DIANJING-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -136,13 +136,13 @@
     const currentCards = [...list.querySelectorAll(".project-card")];
     const mainMirage = currentCards.find((card) => card.classList.contains("project-1")) || currentCards[1];
     if (mainMirage) {
-      mainMirage.dataset.previewSrc = "/assets/mirage-dianjing-white-video.mp4";
+      mainMirage.dataset.previewSrc = "/assets/hero-reel-mirage-ai.mp4";
       mainMirage.querySelector(".project-meta")?.remove();
       mainMirage.innerHTML = `
-        <img class="project-video" src="/assets/mirage-dianjing-thumb-01.jpg" alt="\u9B45\u5F71 \u70B9\u6676\u7CFB\u5217 AI \u89C6\u9891">
+        <img class="project-video" src="/assets/mirage-02-cover.webp" alt="\u9B45\u5F71 AI \u89C6\u9891">
         <div class="project-badge" aria-hidden="true">HOT</div>
         <div class="project-shade"></div>
-        <div class="project-title"><p>\u9B45\u5F71 \u8F7B\u5962\u65E0\u6846\u773C\u955C</p><h3>\u70B9\u6676\u7CFB\u5217</h3></div>
+        <div class="project-title"><p>\u9B45\u5F71 \u65F6\u5C1A\u65E5\u5E38</p><h3>AI \u89C6\u9891</h3></div>
         ${tags("project-tags-02", ["\u9B45\u5F71", "AIGC", "ADVERTISING"])}
         ${projectButton("Open Mirage AIGC")}
       `;
@@ -165,13 +165,13 @@
 
     const charmant = list.querySelector(".project-2");
     if (charmant) {
-      charmant.dataset.previewSrc = "/assets/charmant-video.mp4";
+      charmant.dataset.previewSrc = "/assets/mirage-dianjing-white-video.mp4";
       charmant.innerHTML = `
-        <img class="project-video" src="/assets/charmant-01.webp" alt="\u590F\u8499" loading="lazy" decoding="async">
+        <img class="project-video" src="/assets/mirage-dianjing-thumb-01.jpg" alt="\u9B45\u5F71 \u70B9\u6676\u7CFB\u5217 AI \u89C6\u9891" loading="lazy" decoding="async">
         <div class="project-shade"></div>
-        <div class="project-title"><p>\u65E5\u7CFB\u773C\u955C\u54C1\u724C \u65B0\u54C1 TVC</p><h3>\u590F\u8499</h3></div>
-        ${tags("project-tags-charmant", ["\u590F\u8499", "AIGC", "NEW", "ADVERTISING"])}
-        ${projectButton("Open Charmant")}
+        <div class="project-title"><p>\u9B45\u5F71 \u8F7B\u5962\u65E0\u6846\u773C\u955C</p><h3>\u70B9\u6676\u7CFB\u5217</h3></div>
+        ${tags("project-tags-charmant", ["\u9B45\u5F71", "AIGC", "ADVERTISING"])}
+        ${projectButton("Open Mirage Dianjing")}
       `;
     }
 

@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-ALL-VIDEOS-RESTORE-R1";
+  const VERSION = "LIMO-TIMELINE-COVER-FIX-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -25,8 +25,8 @@
     qipaiPreview: ["/assets/qipai-tang-guanglv-final-web.mp4", "/assets/qipai-ming-luoshenzhu-final-web.mp4", "/assets/qipai-han-chabai-final-web.mp4", "/assets/qipai-song-tianshuibi-final-web.mp4"],
     nb: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
     nbPreview: ["/assets/hero-reel-nb.mp4", "/assets/hero-reel-nb-2.mp4", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
-    charmant: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
-    charmantPreview: ["/assets/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp", "/assets/japanese-style-01.webp"],
+    charmant: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp"],
+    charmantPreview: ["/assets/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp"],
     mirageDianjing: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageDianjingPreview: ["/assets/mirage-dianjing-white-video.mp4", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-dark-video.mp4", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageFashion: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
@@ -244,7 +244,7 @@
     }
     setSummary(tanwood, "2025.10", text.mirageTanwoodTitle, text.mirageTanwoodDesc);
     const tanwoodWrap = tanwood?.querySelector(".case-thumbs");
-    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-03-cover.webp", "mirage-tanwood-thumb", "/assets/hero-reel-mirage-tanwood.mp4", 0);
+    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-tanwood-cover.webp", "mirage-tanwood-thumb", "/assets/hero-reel-mirage-tanwood.mp4", 0);
 
     const nsve = rowByDate("2025.07");
     setSummary(nsve, null, text.nsveTitle);
@@ -326,7 +326,7 @@
       "/assets/mirage-02-cover.webp",
       "/assets/mirage-dianjing-thumb-01.jpg",
       "/assets/nb-shoes-02.webp",
-      "/assets/mirage-dianjing-thumb-04.webp",
+      "/assets/mirage-tanwood-cover.webp",
       "/assets/mirage-03-cover.webp",
       "/assets/charmant-01.webp",
     ];

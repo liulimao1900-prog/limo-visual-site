@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-FEATURED-02-LINK-R1";
+  const VERSION = "LIMO-FEATURED-02-FULL-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -151,7 +151,7 @@
     if (!list.querySelector(".mirage-new-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card reveal is-visible mirage-new-card";
-      card.dataset.previewSrc = "/assets/mirage-dianjing-black-video.mp4";
+      card.dataset.previewSrc = "/assets/mirage-dianjing-white-video.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-03-cover.webp" alt="\u9B45\u5F71\u65B0\u54C1">
         <div class="project-badge" aria-hidden="true">HOT</div>

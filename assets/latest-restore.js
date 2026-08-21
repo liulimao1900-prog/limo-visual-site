@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-FEATURED-02-BLACK-R1";
+  const VERSION = "LIMO-FEATURED-02-LINK-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -151,7 +151,7 @@
     if (!list.querySelector(".mirage-new-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card reveal is-visible mirage-new-card";
-      card.dataset.previewSrc = "/assets/hero-reel-mirage-green.mp4";
+      card.dataset.previewSrc = "/assets/mirage-dianjing-black-video.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-03-cover.webp" alt="\u9B45\u5F71\u65B0\u54C1">
         <div class="project-badge" aria-hidden="true">HOT</div>
@@ -165,13 +165,13 @@
 
     const charmant = list.querySelector(".project-2");
     if (charmant) {
-      charmant.dataset.previewSrc = "/assets/mirage-dianjing-black-video.mp4";
+      charmant.dataset.previewSrc = "/assets/charmant-video.mp4";
       charmant.innerHTML = `
-        <img class="project-video" src="/assets/mirage-dianjing-thumb-02.jpg" alt="\u9B45\u5F71 \u70B9\u6676\u7CFB\u5217 AI \u89C6\u9891" loading="lazy" decoding="async">
+        <img class="project-video" src="/assets/charmant-01.webp" alt="\u590F\u8499" loading="lazy" decoding="async">
         <div class="project-shade"></div>
-        <div class="project-title"><p>\u9B45\u5F71 \u8F7B\u5962\u65E0\u6846\u773C\u955C</p><h3>\u70B9\u6676\u7CFB\u5217</h3></div>
-        ${tags("project-tags-charmant", ["\u9B45\u5F71", "AIGC", "ADVERTISING"])}
-        ${projectButton("Open Mirage Dianjing")}
+        <div class="project-title"><p>\u65E5\u7CFB\u773C\u955C\u54C1\u724C \u65B0\u54C1 TVC</p><h3>\u590F\u8499</h3></div>
+        ${tags("project-tags-charmant", ["\u590F\u8499", "AIGC", "NEW", "ADVERTISING"])}
+        ${projectButton("Open Charmant")}
       `;
     }
 

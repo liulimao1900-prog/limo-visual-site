@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-FEATURED-02-DIANJING-R1";
+  const VERSION = "LIMO-FEATURED-02-BLACK-R1";
 
   const text = {
     close: "\u5173\u95ED",
@@ -165,9 +165,9 @@
 
     const charmant = list.querySelector(".project-2");
     if (charmant) {
-      charmant.dataset.previewSrc = "/assets/mirage-dianjing-white-video.mp4";
+      charmant.dataset.previewSrc = "/assets/mirage-dianjing-black-video.mp4";
       charmant.innerHTML = `
-        <img class="project-video" src="/assets/mirage-dianjing-thumb-01.jpg" alt="\u9B45\u5F71 \u70B9\u6676\u7CFB\u5217 AI \u89C6\u9891" loading="lazy" decoding="async">
+        <img class="project-video" src="/assets/mirage-dianjing-thumb-02.jpg" alt="\u9B45\u5F71 \u70B9\u6676\u7CFB\u5217 AI \u89C6\u9891" loading="lazy" decoding="async">
         <div class="project-shade"></div>
         <div class="project-title"><p>\u9B45\u5F71 \u8F7B\u5962\u65E0\u6846\u773C\u955C</p><h3>\u70B9\u6676\u7CFB\u5217</h3></div>
         ${tags("project-tags-charmant", ["\u9B45\u5F71", "AIGC", "ADVERTISING"])}

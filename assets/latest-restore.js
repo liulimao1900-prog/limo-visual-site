@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-WORK-WALL-IMAGES-R1";
+  const VERSION = "LIMO-WORK-WALL-DEDUP-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -486,7 +486,6 @@
         ["/assets/mirage-03-cover.webp", "/assets/mirage-03-cover.webp"],
         ["/assets/nb-shoes-05.webp", "/assets/nb-shoes-05.webp"],
         ["/assets/stilllife-forest-tea-01.webp", "/assets/stilllife-forest-tea-01.webp"],
-        ["/assets/archive-glasses-close-01.webp", "/assets/archive-glasses-close-01.webp"],
         ["/assets/stilllife-extra-01.webp", "/assets/stilllife-extra-01.webp"],
         ["/assets/stilllife-extra-02.webp", "/assets/stilllife-extra-02.webp"],
         ["/assets/stilllife-extra-03.webp", "/assets/stilllife-extra-03.webp"],

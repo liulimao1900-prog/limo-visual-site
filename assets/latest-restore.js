@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-COS-VIDEO-R1";
+  const VERSION = "LIMO-ASSET-GUARD-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -64,6 +64,55 @@
     video.load?.();
     video.dataset.loaded = "true";
   };
+  const applyMediaGuard = (root = document) => {
+    root.querySelectorAll?.("img, video").forEach((media) => {
+      if (media.dataset.mediaGuard === VERSION) return;
+      media.setAttribute("draggable", "false");
+      media.addEventListener("dragstart", (event) => event.preventDefault());
+      if (media.tagName === "VIDEO") {
+        media.setAttribute("controlsList", "nodownload noplaybackrate");
+        media.disablePictureInPicture = true;
+        media.setAttribute("disablepictureinpicture", "");
+      }
+      media.dataset.mediaGuard = VERSION;
+    });
+  };
+
+  const installAssetGuard = () => {
+    if (!document.getElementById("limo-asset-guard-style")) {
+      const style = document.createElement("style");
+      style.id = "limo-asset-guard-style";
+      style.textContent = `
+        img, video {
+          -webkit-user-drag: none;
+          user-select: none;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    applyMediaGuard();
+    if (document.documentElement.dataset.assetGuard === VERSION) return;
+    document.documentElement.dataset.assetGuard = VERSION;
+    document.addEventListener("contextmenu", (event) => {
+      if (event.target.closest("img, video, .project-card, .case-thumb, .strength-skill-video-frame, .portrait-wrap")) {
+        event.preventDefault();
+      }
+    }, true);
+    document.addEventListener("dragstart", (event) => {
+      if (event.target.closest("img, video")) event.preventDefault();
+    }, true);
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+          if (node.matches?.("img, video")) applyMediaGuard({ querySelectorAll: () => [node] });
+          applyMediaGuard(node);
+        });
+      });
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  };
   const rows = () => [...document.querySelectorAll(".case-row")];
   const rowByDate = (date) => rows().find((row) => (row.querySelector(".case-date")?.textContent || "").trim() === date);
   const rowByLatestCase = (name) => document.querySelector(`.case-row[data-latest-case="${name}"]`);
@@ -126,6 +175,9 @@
       media.controls = true;
       media.autoplay = true;
       media.playsInline = true;
+      media.setAttribute("controlsList", "nodownload noplaybackrate");
+      media.disablePictureInPicture = true;
+      media.setAttribute("disablepictureinpicture", "");
       media.volume = 0.5;
     }
     stage.appendChild(media);
@@ -1246,6 +1298,7 @@
   };
 
   const applyLatest = () => {
+    installAssetGuard();
     restoreVideos();
     prepareFeaturedWorkCards();
     restoreTimeline();

@@ -3366,3 +3366,60 @@
 .portrait-column{
   transform:translateY(-50px)!important;
 }
+
+/* R119: prevent Chinese heading glyphs from being clipped on mobile browsers. */
+@media (width<=900px){
+  .editorial-title,
+  .editorial-title span,
+  .manifesto h2,
+  .profile-copy h2,
+  .work .section-note,
+  .project-title,
+  .project-title h3,
+  .case-timeline-head h2,
+  .case-collaboration h2,
+  .strength-intro h2,
+  .strength-card h3,
+  .visual-archive-head h2,
+  .studio-hero h3,
+  .contact h2,
+  .badge-card b{
+    overflow:visible!important;
+    clip-path:none!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+    text-wrap:balance!important;
+  }
+
+  .editorial-title{
+    line-height:1.08!important;
+    letter-spacing:0!important;
+    padding:0.12em 0 0.16em!important;
+    margin-top:58px!important;
+  }
+
+  .editorial-title span{
+    line-height:1.08!important;
+    padding:0.02em 0!important;
+  }
+
+  .manifesto h2,
+  .profile-copy h2,
+  .strength-intro h2,
+  .case-timeline-head h2,
+  .case-collaboration h2,
+  .visual-archive-head h2,
+  .studio-hero h3,
+  .contact h2{
+    line-height:1.12!important;
+    letter-spacing:0!important;
+    padding:0.06em 0 0.08em!important;
+  }
+
+  .project-title h3,
+  .strength-card h3,
+  .badge-card b{
+    line-height:1.18!important;
+    letter-spacing:0!important;
+  }
+}

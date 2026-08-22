@@ -15,11 +15,45 @@
 
 *{box-sizing:border-box}
 html{background:var(--bg)}
-body{margin:0;background:radial-gradient(circle at 72% 4%,#ff68121c,transparent 28%),linear-gradient(180deg,#121216 0%,#07101a 38%,#02060c 100%);overflow-x:hidden}
+body{margin:0;background:linear-gradient(180deg,#121216 0%,#07101a 38%,#02060c 100%);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
 
 .shell{width:var(--shell);margin:0 auto}
+
+.aurora-bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 75% 8%,#ff68122a,transparent 30%),
+    linear-gradient(180deg,#151019 0%,#07101a 42%,#02060c 100%);
+}
+
+.aurora-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,#02060c00 0%,#02060c88 56%,#02060c 100%),
+    repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),#ffffff08 calc(20% - 1px) 20%);
+}
+
+#aurora-canvas{
+  width:100%;
+  height:100%;
+  opacity:.88;
+  mix-blend-mode:screen;
+}
+
+main,
+footer{
+  position:relative;
+  z-index:1;
+}
 
 .site-nav{
   position:fixed;
@@ -36,6 +70,7 @@ img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
   font:10px/1.2 Consolas,"Microsoft YaHei",monospace;
   letter-spacing:.12em;
   backdrop-filter:blur(18px);
+  background:#05070b40;
 }
 
 .brand{font:800 25px/1 Arial,sans-serif;letter-spacing:6px}
@@ -141,6 +176,7 @@ img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
 }
 
 .statement{
+  position:relative;
   padding:96px 0 86px;
   display:grid;
   grid-template-columns:.92fr 1.08fr;
@@ -211,6 +247,7 @@ img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
 }
 
 .product-duo{
+  position:relative;
   padding:0 0 128px;
 }
 
@@ -241,6 +278,7 @@ img,video{display:block;max-width:100%;-webkit-user-drag:none;user-select:none}
 }
 
 .dark-gallery{
+  position:relative;
   width:var(--shell);
   margin:0 auto;
   padding:108px 0 118px;

@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-DARK-R3" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-AURORA-R1" />
   </head>
   <body>
+    <div class="aurora-bg" aria-hidden="true">
+      <canvas id="aurora-canvas"></canvas>
+    </div>
     <header class="site-nav">
       <a class="brand" href="/index-recover.html#work">L<span>.</span>M</a>
       <p>AI BRAND VISUAL / WORK FINISHING</p>
@@ -128,6 +131,143 @@
     </footer>
 
     <script>
+      (() => {
+        const canvas = document.getElementById("aurora-canvas");
+        const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+        const gl = canvas?.getContext("webgl2", {
+          alpha: true,
+          antialias: true,
+          premultipliedAlpha: true
+        });
+        if (!canvas || !gl || reduceMotion) return;
+
+        const vertex = `#version 300 es
+          in vec2 position;
+          void main() {
+            gl_Position = vec4(position, 0.0, 1.0);
+          }
+        `;
+        const fragment = `#version 300 es
+          precision highp float;
+          uniform float uTime;
+          uniform float uAmplitude;
+          uniform vec3 uColorStops[3];
+          uniform vec2 uResolution;
+          uniform float uBlend;
+          out vec4 fragColor;
+
+          vec3 permute(vec3 x) {
+            return mod(((x * 34.0) + 1.0) * x, 289.0);
+          }
+
+          float snoise(vec2 v) {
+            const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+            vec2 i = floor(v + dot(v, C.yy));
+            vec2 x0 = v - i + dot(i, C.xx);
+            vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+            vec4 x12 = x0.xyxy + C.xxzz;
+            x12.xy -= i1;
+            i = mod(i, 289.0);
+            vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+            vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);
+            m = m * m;
+            m = m * m;
+            vec3 x = 2.0 * fract(p * C.www) - 1.0;
+            vec3 h = abs(x) - 0.5;
+            vec3 ox = floor(x + 0.5);
+            vec3 a0 = x - ox;
+            m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);
+            vec3 g;
+            g.x = a0.x * x0.x + h.x * x0.y;
+            g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+            return 130.0 * dot(m, g);
+          }
+
+          vec3 colorRamp(float factor) {
+            vec3 first = mix(uColorStops[0], uColorStops[1], smoothstep(0.0, 0.5, factor));
+            vec3 second = mix(uColorStops[1], uColorStops[2], smoothstep(0.5, 1.0, factor));
+            return mix(first, second, step(0.5, factor));
+          }
+
+          void main() {
+            vec2 uv = gl_FragCoord.xy / uResolution;
+            vec3 rampColor = colorRamp(uv.x);
+            float height = snoise(vec2(uv.x * 2.0 + uTime * 0.1, uTime * 0.25)) * 0.5 * uAmplitude;
+            height = exp(height);
+            height = (uv.y * 2.0 - height + 0.2);
+            float intensity = 0.6 * height;
+            float midPoint = 0.20;
+            float auroraAlpha = smoothstep(midPoint - uBlend * 0.5, midPoint + uBlend * 0.5, intensity);
+            vec3 auroraColor = intensity * rampColor;
+            fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
+          }
+        `;
+
+        const makeShader = (type, source) => {
+          const shader = gl.createShader(type);
+          gl.shaderSource(shader, source);
+          gl.compileShader(shader);
+          if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(shader));
+          return shader;
+        };
+
+        const program = gl.createProgram();
+        gl.attachShader(program, makeShader(gl.VERTEX_SHADER, vertex));
+        gl.attachShader(program, makeShader(gl.FRAGMENT_SHADER, fragment));
+        gl.linkProgram(program);
+        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+        gl.useProgram(program);
+
+        const buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        const position = gl.getAttribLocation(program, "position");
+        gl.enableVertexAttribArray(position);
+        gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
+        const uniforms = {
+          time: gl.getUniformLocation(program, "uTime"),
+          amplitude: gl.getUniformLocation(program, "uAmplitude"),
+          colorStops: gl.getUniformLocation(program, "uColorStops"),
+          resolution: gl.getUniformLocation(program, "uResolution"),
+          blend: gl.getUniformLocation(program, "uBlend")
+        };
+        const colors = new Float32Array([
+          0.568, 0.231, 0.000,
+          0.035, 0.000, 0.219,
+          0.023, 0.000, 0.113
+        ]);
+
+        const resize = () => {
+          const ratio = Math.min(window.devicePixelRatio || 1, 1.6);
+          const width = Math.floor(window.innerWidth * ratio);
+          const height = Math.floor(window.innerHeight * ratio);
+          canvas.width = width;
+          canvas.height = height;
+          gl.viewport(0, 0, width, height);
+          gl.uniform2f(uniforms.resolution, width, height);
+        };
+
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+        gl.uniform1f(uniforms.amplitude, 1.0);
+        gl.uniform1f(uniforms.blend, 0.5);
+        gl.uniform3fv(uniforms.colorStops, colors);
+        resize();
+        window.addEventListener("resize", resize);
+
+        let frame = 0;
+        const render = (time) => {
+          frame = requestAnimationFrame(render);
+          gl.clearColor(0, 0, 0, 0);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.uniform1f(uniforms.time, time * 0.0005);
+          gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+        frame = requestAnimationFrame(render);
+        window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
+      })();
+
       document.querySelectorAll("video[data-src]").forEach((video) => {
         const load = () => {
           if (video.dataset.loaded) return;

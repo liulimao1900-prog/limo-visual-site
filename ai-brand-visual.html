@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-TITLE-R1" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-ACCORDION-R1" />
   </head>
   <body>
     <div class="aurora-bg" aria-hidden="true">
       <canvas id="aurora-canvas"></canvas>
     </div>
     <header class="site-nav">
-      <a class="brand" href="/index-recover.html#work">L<span>.</span>M</a>
-      <p>AI BRAND VISUAL / WORK FINISHING</p>
-      <a href="/index-recover.html#work">返回精选项目 <b>↗</b></a>
+      <a class="brand" href="/index-recover.html#home">L<span>.</span>M</a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="/index-recover.html#home">首页<sup>01</sup></a>
+        <a href="/index-recover.html#about">经历<sup>02</sup></a>
+        <a href="/index-recover.html#work">项目<sup>03</sup></a>
+        <a href="/index-recover.html#strength">能力<sup>04</sup></a>
+      </nav>
+      <a class="contact-pill" href="/index-recover.html#contact">联系合作 <b>↗</b></a>
     </header>
 
     <main>
@@ -39,6 +44,46 @@
         <figure>
           <img src="/assets/nsve-baiyan-01.webp" alt="镜客眼镜品牌视觉" />
         </figure>
+      </section>
+
+      <section class="accordion-feature shell" aria-label="AI品牌视觉项目模块">
+        <div class="accordion-gallery" role="list">
+          <a class="ag-panel" href="/assets/nsve-baiyan-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="宝岛品牌视觉">
+            <span class="ag-panel__frame">
+              <span class="ag-panel__media"><img src="/assets/nsve-baiyan-01.webp" alt="宝岛眼镜品牌视觉" draggable="false" /></span>
+              <span class="ag-panel__overlay" aria-hidden="true"></span>
+            </span>
+            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">宝岛品牌视觉</span></span>
+          </a>
+          <a class="ag-panel" href="/assets/charmant-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="夏蒙新品视觉">
+            <span class="ag-panel__frame">
+              <span class="ag-panel__media"><img src="/assets/charmant-01.webp" alt="夏蒙新品视觉" draggable="false" /></span>
+              <span class="ag-panel__overlay" aria-hidden="true"></span>
+            </span>
+            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">夏蒙新品视觉</span></span>
+          </a>
+          <a class="ag-panel ag-panel--active" href="/assets/mirage-02-cover.webp" target="_blank" rel="noreferrer" role="listitem" aria-current="true" aria-label="魅影产品质感">
+            <span class="ag-panel__frame">
+              <span class="ag-panel__media"><img src="/assets/mirage-02-cover.webp" alt="魅影产品质感" draggable="false" /></span>
+              <span class="ag-panel__overlay" aria-hidden="true"></span>
+            </span>
+            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">魅影产品质感</span></span>
+          </a>
+          <a class="ag-panel" href="/assets/mirage-fashion-thumb-04.jpg" target="_blank" rel="noreferrer" role="listitem" aria-label="人物形象修图">
+            <span class="ag-panel__frame">
+              <span class="ag-panel__media"><img src="/assets/mirage-fashion-thumb-04.jpg" alt="人物形象修图" draggable="false" /></span>
+              <span class="ag-panel__overlay" aria-hidden="true"></span>
+            </span>
+            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">人物形象修图</span></span>
+          </a>
+          <a class="ag-panel" href="/assets/archive-glasses-close-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="镜框细节输出">
+            <span class="ag-panel__frame">
+              <span class="ag-panel__media"><img src="/assets/archive-glasses-close-01.webp" alt="镜框细节输出" draggable="false" /></span>
+              <span class="ag-panel__overlay" aria-hidden="true"></span>
+            </span>
+            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">镜框细节输出</span></span>
+          </a>
+        </div>
       </section>
 
       <section class="statement shell">
@@ -267,6 +312,41 @@
         frame = requestAnimationFrame(render);
         window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
       })();
+
+      document.querySelectorAll(".accordion-gallery").forEach((gallery) => {
+        const panels = [...gallery.querySelectorAll(".ag-panel")];
+        const setActive = (activePanel) => {
+          panels.forEach((panel) => {
+            const isActive = panel === activePanel;
+            panel.classList.toggle("ag-panel--active", isActive);
+            if (isActive) {
+              panel.setAttribute("aria-current", "true");
+            } else {
+              panel.removeAttribute("aria-current");
+            }
+          });
+        };
+
+        panels.forEach((panel, index) => {
+          panel.tabIndex = 0;
+          panel.addEventListener("mouseenter", () => setActive(panel));
+          panel.addEventListener("focus", () => setActive(panel));
+          panel.addEventListener("click", (event) => {
+            if (!panel.classList.contains("ag-panel--active")) {
+              event.preventDefault();
+              setActive(panel);
+            }
+          });
+          panel.addEventListener("keydown", (event) => {
+            if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
+            event.preventDefault();
+            const step = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+            const next = panels[(index + step + panels.length) % panels.length];
+            setActive(next);
+            next.focus();
+          });
+        });
+      });
 
       document.querySelectorAll("video[data-src]").forEach((video) => {
         const load = () => {

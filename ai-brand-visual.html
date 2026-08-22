@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-ACCORDION-R2" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-ACCORDION-R3" />
   </head>
   <body>
     <div class="aurora-bg" aria-hidden="true">
@@ -53,35 +53,30 @@
               <span class="ag-panel__media"><img src="/assets/nsve-baiyan-01.webp" alt="宝岛眼镜品牌视觉" draggable="false" /></span>
               <span class="ag-panel__overlay" aria-hidden="true"></span>
             </span>
-            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">宝岛品牌视觉</span></span>
           </a>
           <a class="ag-panel" href="/assets/charmant-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="夏蒙新品视觉">
             <span class="ag-panel__frame">
               <span class="ag-panel__media"><img src="/assets/charmant-01.webp" alt="夏蒙新品视觉" draggable="false" /></span>
               <span class="ag-panel__overlay" aria-hidden="true"></span>
             </span>
-            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">夏蒙新品视觉</span></span>
           </a>
           <a class="ag-panel ag-panel--active" href="/assets/mirage-02-cover.webp" target="_blank" rel="noreferrer" role="listitem" aria-current="true" aria-label="魅影产品质感">
             <span class="ag-panel__frame">
               <span class="ag-panel__media"><img src="/assets/mirage-02-cover.webp" alt="魅影产品质感" draggable="false" /></span>
               <span class="ag-panel__overlay" aria-hidden="true"></span>
             </span>
-            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">魅影产品质感</span></span>
           </a>
           <a class="ag-panel" href="/assets/mirage-fashion-thumb-04.jpg" target="_blank" rel="noreferrer" role="listitem" aria-label="人物形象修图">
             <span class="ag-panel__frame">
               <span class="ag-panel__media"><img src="/assets/mirage-fashion-thumb-04.jpg" alt="人物形象修图" draggable="false" /></span>
               <span class="ag-panel__overlay" aria-hidden="true"></span>
             </span>
-            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">人物形象修图</span></span>
           </a>
           <a class="ag-panel" href="/assets/archive-glasses-close-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="镜框细节输出">
             <span class="ag-panel__frame">
               <span class="ag-panel__media"><img src="/assets/archive-glasses-close-01.webp" alt="镜框细节输出" draggable="false" /></span>
               <span class="ag-panel__overlay" aria-hidden="true"></span>
             </span>
-            <span class="ag-panel__label" aria-hidden="true"><span class="ag-panel__bar"></span><span class="ag-panel__text">镜框细节输出</span></span>
           </a>
         </div>
       </section>
@@ -316,7 +311,6 @@
       document.querySelectorAll(".accordion-gallery").forEach((gallery) => {
         const panels = [...gallery.querySelectorAll(".ag-panel")];
         const media = panels.map((panel) => panel.querySelector(".ag-panel__media"));
-        const labels = panels.map((panel) => panel.querySelector(".ag-panel__label"));
         const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
         let activeIndex = panels.findIndex((panel) => panel.classList.contains("ag-panel--active"));
         if (activeIndex < 0) activeIndex = Math.min(2, panels.length - 1);
@@ -352,8 +346,6 @@
             media[index]?.style.setProperty("--ag-shift-y", "0px");
             media[index]?.style.setProperty("--ag-gray", isActive ? 0 : 1);
             media[index]?.style.setProperty("--ag-dim", isActive ? 0 : 0.35);
-            labels[index]?.style.setProperty("--ag-label-opacity", isActive ? 1 : 0);
-            labels[index]?.style.setProperty("--ag-label-x", isActive ? "0px" : "-14px");
           });
         };
 

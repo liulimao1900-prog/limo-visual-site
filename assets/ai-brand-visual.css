@@ -63,7 +63,8 @@ footer{
   top:0;
   left:50%;
   transform:translateX(-50%);
-  width:var(--shell);
+  width:min(1700px,calc(100vw - 120px));
+  max-width:none;
   height:76px;
   display:flex;
   align-items:center;
@@ -107,6 +108,7 @@ footer{
   letter-spacing:0;
   font:13px/1 "Microsoft YaHei",sans-serif;
   background:#ffffff0a;
+  white-space:nowrap;
 }
 
 .hero{
@@ -296,43 +298,6 @@ footer{
     linear-gradient(180deg,transparent 45%,color-mix(in srgb,var(--ag-overlay) 78%,transparent) 100%),
     color-mix(in srgb,var(--ag-overlay) calc(var(--ag-dim,.35) * 100%),transparent);
   transition:opacity .45s;
-}
-
-.ag-panel__label{
-  --ag-label-opacity:0;
-  --ag-label-x:-14px;
-  position:absolute;
-  z-index:2;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  pointer-events:none;
-  opacity:var(--ag-label-opacity);
-  transform:translateX(var(--ag-label-x));
-  transition:opacity .42s ease,transform .42s ease;
-}
-
-.ag-panel__bar{
-  flex:0 0 auto;
-  width:3px;
-  height:26px;
-  border-radius:3px;
-  background:var(--ag-accent);
-  box-shadow:0 0 12px #ff681299;
-}
-
-.ag-panel__text{
-  color:var(--ag-text);
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-  text-shadow:0 2px 14px #0009;
-  font-size:clamp(16px,1.25vw,22px);
-  font-weight:520;
-  letter-spacing:-.025em;
 }
 
 .statement{
@@ -530,6 +495,7 @@ footer a{color:var(--orange)}
 
 @media(max-width:900px){
   :root{--shell:calc(100vw - 36px)}
+  .site-nav{width:calc(100vw - 44px)}
   .site-nav{height:66px}
   .nav-links{gap:16px}
   .nav-links a{font-size:12px}
@@ -581,6 +547,7 @@ footer a{color:var(--orange)}
 }
 
 @media(max-width:520px){
+  .site-nav{width:calc(100vw - 28px)}
   .site-nav{gap:14px}
   .nav-links{gap:10px}
   .nav-links a{font-size:11px}

@@ -1127,11 +1127,12 @@
 
   const enableAboutSkillLinks = () => {
     document.querySelectorAll(".about-skill-list li").forEach((item) => {
-      if ((item.textContent || "").trim() !== "C4D三维" || item.dataset.linkReady === "three-dimension-r1") return;
+      const skill = (item.textContent || "").trim();
+      if (!["C4D三维", "电商设计"].includes(skill) || item.dataset.linkReady === "three-dimension-r2") return;
       item.classList.add("is-clickable-skill");
       item.setAttribute("role", "link");
       item.setAttribute("tabindex", "0");
-      item.setAttribute("aria-label", "打开 C4D 三维二级页面");
+      item.setAttribute("aria-label", `打开${skill}二级页面`);
       item.addEventListener("click", () => {
         window.location.href = "/three-dimension.html";
       });
@@ -1140,7 +1141,7 @@
         event.preventDefault();
         window.location.href = "/three-dimension.html";
       });
-      item.dataset.linkReady = "three-dimension-r1";
+      item.dataset.linkReady = "three-dimension-r2";
     });
   };
 
@@ -1164,7 +1165,7 @@
         if (!item) return;
         menu.classList.remove("is-open");
         abilityButton.setAttribute("aria-expanded", "false");
-        if (item.dataset.skill === "C4D三维") {
+        if (["C4D三维", "电商设计"].includes(item.dataset.skill)) {
           window.location.href = "/three-dimension.html";
           return;
         }

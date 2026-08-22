@@ -1,5 +1,6 @@
 (() => {
-  const VERSION = "LIMO-FEATURED-02-FULL-R1";
+  const VERSION = "LIMO-VIDEO-LITE-R1";
+  const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
     close: "\u5173\u95ED",
@@ -40,6 +41,29 @@
   };
 
   const isVideo = (src) => /\.(mp4|webm|mov)(\?|$)/i.test(src || "");
+  const extractVideoSource = (video) => video?.dataset.src || video?.querySelector("source")?.getAttribute("src") || "";
+  const unloadInlineVideoSource = (video, src) => {
+    if (!video || video.dataset.sourceDeferred === VERSION) return;
+    const source = src || extractVideoSource(video);
+    if (!source) return;
+    video.dataset.src = source;
+    video.querySelectorAll("source").forEach((node) => node.remove());
+    video.removeAttribute("src");
+    video.preload = "none";
+    video.dataset.sourceDeferred = VERSION;
+    video.load?.();
+  };
+  const hydrateVideoSource = (video, src) => {
+    if (!video || video.dataset.loaded === "true") return;
+    const sourceSrc = src || video.dataset.src;
+    if (!sourceSrc) return;
+    const source = document.createElement("source");
+    source.src = sourceSrc;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    video.load?.();
+    video.dataset.loaded = "true";
+  };
   const rows = () => [...document.querySelectorAll(".case-row")];
   const rowByDate = (date) => rows().find((row) => (row.querySelector(".case-date")?.textContent || "").trim() === date);
   const rowByLatestCase = (name) => document.querySelector(`.case-row[data-latest-case="${name}"]`);
@@ -338,13 +362,14 @@
         card.dataset.videoRestoreReady = VERSION;
         return;
       }
-      const source = video.querySelector("source")?.getAttribute("src") || "";
+      const source = extractVideoSource(video);
       card.dataset.previewSrc = source;
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
-      video.preload = index === 0 ? "metadata" : "none";
+      video.preload = "none";
       video.poster = video.poster || heroCovers[index % heroCovers.length];
+      unloadInlineVideoSource(video, source);
       card.dataset.videoRestoreReady = VERSION;
     });
 
@@ -354,6 +379,15 @@
       video.autoplay = false;
       video.playsInline = true;
       video.preload = "none";
+    });
+
+    document.querySelectorAll(".hero-video").forEach((video) => {
+      video.muted = true;
+      video.autoplay = false;
+      video.loop = false;
+      video.playsInline = true;
+      video.poster = video.poster || "/assets/hero-monitor-mockup.webp";
+      unloadInlineVideoSource(video);
     });
   };
 
@@ -540,9 +574,7 @@
     section.innerHTML = `
       <div class="vertical-work-grid" aria-hidden="true"></div>
       <div class="motion-sites-bg" aria-hidden="true">
-        <video muted autoplay loop playsinline preload="metadata" poster="/assets/mirage-01-cover.jpg">
-          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4" type="video/mp4">
-        </video>
+        <video muted loop playsinline preload="none" poster="/assets/mirage-01-cover.jpg" data-src="${WORK_WALL_BG_VIDEO}"></video>
         <div class="motion-sites-overlay"></div>
       </div>
       <div class="shell visual-archive-head">
@@ -720,6 +752,29 @@
         paint();
       }, 3600);
     }
+  };
+
+  const enableLazyMotionBackground = () => {
+    const video = document.querySelector(".motion-sites-bg video[data-src]");
+    const section = video?.closest(".vertical-work-carousel");
+    if (!video || !section || video.dataset.lazyMotionReady === VERSION) return;
+    video.dataset.lazyMotionReady = VERSION;
+    const start = () => {
+      hydrateVideoSource(video);
+      video.play?.().catch(() => {});
+    };
+    const stop = () => video.pause?.();
+    if (!("IntersectionObserver" in window)) {
+      start();
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) start();
+        else stop();
+      });
+    }, { threshold: 0.08, rootMargin: "260px 0px" });
+    observer.observe(section);
   };
 
   const offsetWorkWall = () => {
@@ -1031,20 +1086,8 @@
     grid.dataset.skillsVersion = "five-card-video-r8";
   };
 
-  const hydrateStrengthVideo = (video) => {
-    if (!video || video.dataset.loaded === "true") return;
-    const src = video.dataset.src;
-    if (!src) return;
-    const source = document.createElement("source");
-    source.src = src;
-    source.type = "video/mp4";
-    video.appendChild(source);
-    video.load();
-    video.dataset.loaded = "true";
-  };
-
   const playStrengthVideo = (video) => {
-    hydrateStrengthVideo(video);
+    hydrateVideoSource(video);
     video.play?.().catch(() => {});
   };
 
@@ -1204,6 +1247,7 @@
     ensureDetailLinks();
     enablePreviewClicks();
     ensureVerticalWorkCarousel();
+    enableLazyMotionBackground();
     offsetWorkWall();
     restoreStrengthCards();
     enableLazyStrengthVideos();

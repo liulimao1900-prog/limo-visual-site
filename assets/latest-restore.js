@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-WORK-WALL-DEDUP-R1";
+  const VERSION = "LIMO-BRAND-VISUAL-PAGE-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -1241,20 +1241,21 @@
   const enableAboutSkillLinks = () => {
     document.querySelectorAll(".about-skill-list li").forEach((item) => {
       const skill = (item.textContent || "").trim();
-      if (!["C4D三维", "电商设计"].includes(skill) || item.dataset.linkReady === "three-dimension-r2") return;
+      const target = skill === "AI品牌视觉" ? "/ai-brand-visual.html" : "/three-dimension.html";
+      if (!["AI品牌视觉", "C4D三维", "电商设计"].includes(skill) || item.dataset.linkReady === VERSION) return;
       item.classList.add("is-clickable-skill");
       item.setAttribute("role", "link");
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", `打开${skill}二级页面`);
       item.addEventListener("click", () => {
-        window.location.href = "/three-dimension.html";
+        window.location.href = target;
       });
       item.addEventListener("keydown", (event) => {
         if (event.key !== "Enter" && event.key !== " ") return;
         event.preventDefault();
-        window.location.href = "/three-dimension.html";
+        window.location.href = target;
       });
-      item.dataset.linkReady = "three-dimension-r2";
+      item.dataset.linkReady = VERSION;
     });
   };
 
@@ -1278,6 +1279,10 @@
         if (!item) return;
         menu.classList.remove("is-open");
         abilityButton.setAttribute("aria-expanded", "false");
+        if (item.dataset.skill === "AI品牌视觉") {
+          window.location.href = "/ai-brand-visual.html";
+          return;
+        }
         if (["C4D三维", "电商设计"].includes(item.dataset.skill)) {
           window.location.href = "/three-dimension.html";
           return;

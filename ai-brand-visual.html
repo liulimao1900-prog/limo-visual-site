@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101014" />
+    <title>LIMO Visual | AI品牌视觉</title>
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-PAGE-R1" />
+  </head>
+  <body>
+    <header class="site-nav">
+      <a class="brand" href="/index-recover.html#work">L<span>.</span>M</a>
+      <p>AI BRAND VISUAL / SELECTED WORKS</p>
+      <a href="/index-recover.html#work">返回精选项目 <b>↗</b></a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p>01 / AI BRAND VISUAL</p>
+          <h1>AI品牌<br />视觉系统</h1>
+          <span>连接策略、动态、空间与数字体验，让品牌在不同介质中持续生长。</span>
+        </div>
+        <div class="hero-media">
+          <img src="/assets/mirage-02-cover.webp" alt="魅影 AI 品牌视觉封面" />
+        </div>
+        <div class="hero-strip" aria-label="精选品牌视觉封面">
+          <img src="/assets/qipai-guose-01.webp" alt="" />
+          <img src="/assets/charmant-01.webp" alt="" />
+          <img src="/assets/nb-shoes-03.webp" alt="" />
+          <img src="/assets/mirage-aigc-tv-cover.webp" alt="" />
+        </div>
+      </section>
+
+      <section class="intro">
+        <p>BRAND / AIGC / VISUAL SYSTEM</p>
+        <h2>不只是生成图，而是把品牌气质拆成可执行的视觉语言。</h2>
+        <div class="intro-list">
+          <span>创意方向</span>
+          <span>视觉设定</span>
+          <span>KV延展</span>
+          <span>动态分镜</span>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <article class="case case-wide">
+          <div>
+            <p>FEATURED 01</p>
+            <h2>魅影 AI 视觉</h2>
+            <span>以轻奢无框眼镜为核心，完成新品视觉、广告封面与动态内容的统一表达。</span>
+          </div>
+          <video autoplay muted loop playsinline preload="none" poster="/assets/mirage-02-cover.webp" controlslist="nodownload noplaybackrate" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/hero-reel-mirage-ai.mp4"></video>
+        </article>
+
+        <article class="case">
+          <img src="/assets/qipai-guose-01.webp" alt="柒牌国色系列品牌视觉" />
+          <div>
+            <p>FEATURED 02</p>
+            <h2>柒彩国色</h2>
+            <span>传统服饰色彩系统与 AI 动态影像结合，形成系列化品牌内容。</span>
+          </div>
+        </article>
+
+        <article class="case">
+          <img src="/assets/charmant-01.webp" alt="夏蒙日系眼镜品牌视觉" />
+          <div>
+            <p>FEATURED 03</p>
+            <h2>夏蒙新品</h2>
+            <span>以日系轻盈感和镜架新品为核心，统一 KV、分镜与视频呈现。</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="wall">
+        <header>
+          <p>03 / VISUAL ARCHIVE</p>
+          <h2>品牌视觉样本</h2>
+          <span>从产品广告、品牌视觉到 AI 视频内容，把项目以作品库方式集中呈现。</span>
+        </header>
+        <div class="wall-grid">
+          <a href="/assets/mirage-01-cover.webp" target="_blank" rel="noreferrer"><img src="/assets/mirage-01-cover.webp" alt="MiniMax H3 视觉封面" /></a>
+          <a href="/assets/mirage-02-cover.webp" target="_blank" rel="noreferrer"><img src="/assets/mirage-02-cover.webp" alt="魅影视觉封面" /></a>
+          <a href="/assets/qipai-guose-02.webp" target="_blank" rel="noreferrer"><img src="/assets/qipai-guose-02.webp" alt="柒牌视觉封面" /></a>
+          <a href="/assets/nb-shoes-01.webp" target="_blank" rel="noreferrer"><img src="/assets/nb-shoes-01.webp" alt="New Balance 鞋款视觉" /></a>
+          <a href="/assets/nsve-baiyan-01.webp" target="_blank" rel="noreferrer"><img src="/assets/nsve-baiyan-01.webp" alt="NSVE 眼镜视觉" /></a>
+          <a href="/assets/mirage-aigc-tv-cover.webp" target="_blank" rel="noreferrer"><img src="/assets/mirage-aigc-tv-cover.webp" alt="魅影 AIGC TV 视觉" /></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 LIMO VISUAL</span>
+      <a href="/index-recover.html#contact">联系合作 ↗</a>
+    </footer>
+
+    <script>
+      document.querySelectorAll("video[data-src]").forEach((video) => {
+        const load = () => {
+          if (video.dataset.loaded) return;
+          const source = document.createElement("source");
+          source.src = video.dataset.src;
+          source.type = "video/mp4";
+          video.appendChild(source);
+          video.load();
+          video.dataset.loaded = "true";
+          video.play?.().catch(() => {});
+        };
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              load();
+              observer.disconnect();
+            });
+          }, { rootMargin: "180px" });
+          observer.observe(video);
+        } else {
+          load();
+        }
+      });
+    </script>
+  </body>
+</html>

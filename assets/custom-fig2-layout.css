@@ -3423,3 +3423,38 @@
     letter-spacing:0!important;
   }
 }
+
+/* R120: desktop hero title also needs safe Chinese glyph bounds. */
+.hero-editorial .editorial-title,
+.hero-editorial .editorial-title span{
+  overflow:visible!important;
+  clip-path:none!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+
+.hero-editorial .editorial-title{
+  line-height:.96!important;
+  letter-spacing:0!important;
+  padding:.08em 0 .14em!important;
+}
+
+.hero-editorial .editorial-title span{
+  line-height:.96!important;
+  padding:.02em 0!important;
+}
+
+.site.is-loaded .hero-editorial .editorial-title span{
+  animation:none!important;
+  opacity:1!important;
+  filter:none!important;
+  clip-path:none!important;
+  transform:none!important;
+}
+
+@media (width<=900px){
+  .hero-editorial .editorial-title,
+  .hero-editorial .editorial-title span{
+    line-height:1.08!important;
+  }
+}

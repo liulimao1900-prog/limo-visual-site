@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-ASSET-GUARD-R1";
+  const VERSION = "LIMO-WORK-WALL-DEDUP-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -549,7 +549,6 @@
     // Removed from the work wall at the owner's request.
     const hiddenArchiveImages = new Set([
       "/assets/mirage-dianjing-thumb-01.jpg",
-      "/assets/work-wall-diamond-glasses-r1.webp",
       "/assets/archive-glasses-close-01.webp",
       "/assets/stilllife-extra-02.webp",
     ]);
@@ -661,6 +660,20 @@
         <p>从产品广告、品牌视觉到 AI 视频内容，把不同项目以作品库的方式集中呈现。</p>
       </div>
     `;
+    const keepSingleArchiveImage = (imagePath) => {
+      let kept = false;
+      section.querySelectorAll(".visual-archive-tile").forEach((tile) => {
+        const img = tile.querySelector("img");
+        const src = img?.getAttribute("src") || "";
+        if (src !== imagePath) return;
+        if (!kept) {
+          kept = true;
+          return;
+        }
+        tile.remove();
+      });
+    };
+    keepSingleArchiveImage("/assets/work-wall-diamond-glasses-r1.webp");
     anchor.parentNode.insertBefore(section, anchor);
 
     section.querySelectorAll(".visual-archive-tile").forEach((tile) => {

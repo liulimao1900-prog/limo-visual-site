@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-WORK-WALL-HIDE-GLASSES-R1";
+  const VERSION = "LIMO-COS-VIDEO-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -23,19 +23,19 @@
   const assets = {
     jordan: ["/assets/jordan-q4-01.webp", "/assets/jordan-q4-02.webp", "/assets/jordan-q4-03.webp"],
     qipai: ["/assets/qipai-guose-01.webp", "/assets/qipai-guose-02.webp", "/assets/qipai-guose-03.webp", "/assets/qipai-guose-04.webp"],
-    qipaiPreview: ["/assets/qipai-tang-guanglv-final-web.mp4", "/assets/qipai-ming-luoshenzhu-final-web.mp4", "/assets/qipai-han-chabai-final-web.mp4", "/assets/qipai-song-tianshuibi-final-web.mp4"],
+    qipaiPreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/qipai-tang-guanglv-final-web.mp4", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/qipai-ming-luoshenzhu-final-web.mp4", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/qipai-han-chabai-final-web.mp4", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/qipai-song-tianshuibi-final-web.mp4"],
     nb: ["/assets/nb-shoes-01.webp", "/assets/nb-shoes-02.webp", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
-    nbPreview: ["/assets/hero-reel-nb.mp4", "/assets/hero-reel-nb-2.mp4", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
+    nbPreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/hero-reel-nb.mp4", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/hero-reel-nb-2.mp4", "/assets/nb-shoes-03.webp", "/assets/nb-shoes-04.webp", "/assets/nb-shoes-05.webp"],
     charmant: ["/assets/charmant-01.webp", "/assets/charmant-03.webp", "/assets/charmant-04.webp"],
-    charmantPreview: ["/assets/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp"],
+    charmantPreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/charmant-video.mp4", "/assets/charmant-03.webp", "/assets/charmant-04.webp"],
     mirageDianjing: ["/assets/mirage-dianjing-thumb-01.jpg", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-thumb-04.webp", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
-    mirageDianjingPreview: ["/assets/mirage-dianjing-white-video.mp4", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "/assets/mirage-dianjing-dark-video.mp4", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
+    mirageDianjingPreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/mirage-dianjing-white-video.mp4", "/assets/mirage-dianjing-thumb-02.jpg", "/assets/mirage-dianjing-thumb-03.webp", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/mirage-dianjing-dark-video.mp4", "/assets/mirage-dianjing-thumb-05.webp", "/assets/mirage-dianjing-thumb-06.jpg"],
     mirageFashion: ["/assets/mirage-fashion-thumb-01.jpg", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
-    mirageFashionPreview: ["/assets/mirage-fashion-video.mp4", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
+    mirageFashionPreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/mirage-fashion-video.mp4", "/assets/mirage-fashion-thumb-02.jpg", "/assets/mirage-fashion-thumb-03.jpg", "/assets/mirage-fashion-thumb-04.jpg", "/assets/mirage-fashion-thumb-05.jpg", "/assets/mirage-fashion-thumb-06.webp"],
     gaote: ["/assets/gaote-ride-01.webp", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
-    gaotePreview: ["/assets/gaote-ride-video-web.mp4", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
+    gaotePreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/gaote-ride-video-web.mp4", "/assets/gaote-ride-02.jpg", "/assets/gaote-ride-03.jpg", "/assets/gaote-ride-04.jpg"],
     nsve: ["/assets/nsve-baiyan-01.webp", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
-    nsvePreview: ["/assets/nsve-baiyan-video-web.mp4", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
+    nsvePreview: ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/nsve-baiyan-video-web.mp4", "/assets/nsve-baiyan-02.webp", "/assets/nsve-baiyan-03.webp", "/assets/nsve-baiyan-04.webp"],
     shuijingfang: ["/assets/shuijingfang-changsha-01.webp", "/assets/shuijingfang-changsha-02.webp", "/assets/shuijingfang-changsha-03.png"],
     linglongtai: ["/assets/linglongtai-thumb-01.png", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"],
   };
@@ -145,7 +145,7 @@
     if (!list.querySelector(".minimax-h3-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card project-0 reveal is-visible minimax-h3-card";
-      card.dataset.previewSrc = "/assets/minimax-h3-luxury-glasses-tvc.mp4";
+      card.dataset.previewSrc = "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/minimax-h3-luxury-glasses-tvc.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-01-cover.webp" alt="MiniMax H3" loading="lazy" decoding="async">
         <div class="project-badge" aria-hidden="true">NEW</div>
@@ -160,7 +160,7 @@
     const currentCards = [...list.querySelectorAll(".project-card")];
     const mainMirage = currentCards.find((card) => card.classList.contains("project-1")) || currentCards[1];
     if (mainMirage) {
-      mainMirage.dataset.previewSrc = "/assets/hero-reel-mirage-ai.mp4";
+      mainMirage.dataset.previewSrc = "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/hero-reel-mirage-ai.mp4";
       mainMirage.querySelector(".project-meta")?.remove();
       mainMirage.innerHTML = `
         <img class="project-video" src="/assets/mirage-02-cover.webp" alt="\u9B45\u5F71 AI \u89C6\u9891">
@@ -175,7 +175,7 @@
     if (!list.querySelector(".mirage-new-card")) {
       const card = base01.cloneNode(true);
       card.className = "project-card reveal is-visible mirage-new-card";
-      card.dataset.previewSrc = "/assets/mirage-dianjing-white-video.mp4";
+      card.dataset.previewSrc = "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/mirage-dianjing-white-video.mp4";
       card.innerHTML = `
         <img class="project-video" src="/assets/mirage-03-cover.webp" alt="\u9B45\u5F71\u65B0\u54C1">
         <div class="project-badge" aria-hidden="true">HOT</div>
@@ -189,7 +189,7 @@
 
     const charmant = list.querySelector(".project-2");
     if (charmant) {
-      charmant.dataset.previewSrc = "/assets/charmant-video.mp4";
+      charmant.dataset.previewSrc = "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/charmant-video.mp4";
       charmant.innerHTML = `
         <img class="project-video" src="/assets/charmant-01.webp" alt="\u590F\u8499" loading="lazy" decoding="async">
         <div class="project-shade"></div>
@@ -201,7 +201,7 @@
 
     const linglongtai = list.querySelector(".project-3");
     if (linglongtai) {
-      linglongtai.dataset.previewSrc = "/assets/linglongtai-tvc-h264.mp4";
+      linglongtai.dataset.previewSrc = "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/linglongtai-tvc-h264.mp4";
       linglongtai.innerHTML = `
         <img class="project-video" src="/assets/mirage-aigc-tv-cover.webp" alt="\u9B45\u5F71 AIGC TV \u5E7F\u544A\u7247">
         <div class="project-shade"></div>
@@ -268,7 +268,7 @@
     }
     setSummary(tanwood, "2025.10", text.mirageTanwoodTitle, text.mirageTanwoodDesc);
     const tanwoodWrap = tanwood?.querySelector(".case-thumbs");
-    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-tanwood-cover.webp", "mirage-tanwood-thumb", "/assets/hero-reel-mirage-tanwood.mp4", 0);
+    if (tanwoodWrap) tanwoodWrap.innerHTML = mediaFigure("/assets/mirage-tanwood-cover.webp", "mirage-tanwood-thumb", "https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/hero-reel-mirage-tanwood.mp4", 0);
 
     const nsve = rowByDate("2025.07");
     setSummary(nsve, null, text.nsveTitle);
@@ -280,7 +280,7 @@
 
     const linglongtai = rowByDate("2025.04");
     setSummary(linglongtai, null, text.linglongtaiTitle);
-    setThumbs(linglongtai, assets.linglongtai, "linglongtai-thumb", ["/assets/linglongtai-tvc-h264.mp4", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"]);
+    setThumbs(linglongtai, assets.linglongtai, "linglongtai-thumb", ["https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/linglongtai-tvc-h264.mp4", "/assets/linglongtai-thumb-02.png", "/assets/linglongtai-thumb-03.png"]);
 
     rows().forEach((row, index) => {
       row.style.setProperty("--stagger-index", index);
@@ -1064,23 +1064,23 @@
         <span>${no}</span>
         ${index === 0 ? `
           <div class="strength-skill-video-frame">
-            <video muted loop playsinline preload="none" poster="/assets/strength-card-video-1-poster.jpg" data-src="/assets/strength-card-video-1.mp4" aria-label="品牌系统展示视频"></video>
+            <video muted loop playsinline preload="none" poster="/assets/strength-card-video-1-poster.jpg" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/strength-card-video-1.mp4" aria-label="品牌系统展示视频"></video>
           </div>
         ` : index === 1 ? `
           <div class="strength-skill-video-frame">
-            <video muted loop playsinline preload="none" poster="/assets/strength-card-video-2-poster.jpg" data-src="/assets/strength-card-video-2.mp4" aria-label="AIGC 影像展示视频"></video>
+            <video muted loop playsinline preload="none" poster="/assets/strength-card-video-2-poster.jpg" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/strength-card-video-2.mp4" aria-label="AIGC 影像展示视频"></video>
           </div>
         ` : index === 2 ? `
           <div class="strength-skill-video-frame is-scale-down">
-            <video muted loop playsinline preload="none" poster="/assets/strength-visual-integration-r2-poster.jpg" data-src="/assets/strength-visual-integration-r2.mp4" aria-label="视觉整合立体标志细微向左转动视频"></video>
+            <video muted loop playsinline preload="none" poster="/assets/strength-visual-integration-r2-poster.jpg" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/strength-visual-integration-r2.mp4" aria-label="视觉整合立体标志细微向左转动视频"></video>
           </div>
         ` : index === 3 ? `
           <div class="strength-skill-video-frame">
-            <video muted loop playsinline preload="none" poster="/assets/strength-three-dimension-r2-poster.jpg" data-src="/assets/strength-three-dimension-r2.mp4" aria-label="三维视觉立体标志细微向左转动视频"></video>
+            <video muted loop playsinline preload="none" poster="/assets/strength-three-dimension-r2-poster.jpg" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/strength-three-dimension-r2.mp4" aria-label="三维视觉立体标志细微向左转动视频"></video>
           </div>
         ` : index === 4 ? `
           <div class="strength-skill-video-frame is-scale-down">
-            <video muted loop playsinline preload="none" poster="/assets/strength-ecommerce-r1-poster.jpg" data-src="/assets/strength-ecommerce-r1.mp4" aria-label="电商视觉立体标志细微向左转动视频"></video>
+            <video muted loop playsinline preload="none" poster="/assets/strength-ecommerce-r1-poster.jpg" data-src="https://limoaigc-video-1472957400.cos.ap-guangzhou.myqcloud.com/videos/strength-ecommerce-r1.mp4" aria-label="电商视觉立体标志细微向左转动视频"></video>
           </div>
         ` : `<div class="card-symbol">${symbol}</div>`}
         <h3>${title}</h3>

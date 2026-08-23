@@ -313,20 +313,21 @@ footer{
 }
 
 .page-brand-planning .duo-slider--triple .duo-slider__stage{
-  min-height:820px;
+  min-height:728px;
 }
 
 .page-brand-planning .duo-slider--triple .duo-slider__viewport{
-  width:min(1500px,88vw);
+  width:min(1300px,88vw);
 }
 
 .page-brand-planning .duo-slider--triple .duo-slide{
   grid-template-columns:repeat(3,minmax(0,1fr));
-  padding:82px 0 98px;
+  padding:69px 0;
 }
 
 .page-brand-planning .duo-slider--triple .duo-slide img{
-  aspect-ratio:3/4.25;
+  height:590px;
+  aspect-ratio:auto;
 }
 
 .page-brand-planning .duo-slider--triple .duo-slide img:first-child{
@@ -342,7 +343,7 @@ footer{
 }
 
 .page-brand-planning .duo-slider--triple .duo-slider__dots{
-  bottom:96px;
+  bottom:60px;
 }
 
 .page-brand-planning .duo-slider--triple .duo-slider__arrow--prev{

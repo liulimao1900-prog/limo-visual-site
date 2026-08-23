@@ -677,6 +677,10 @@ footer{
   padding:0 0 128px;
 }
 
+.product-duo--expanded{
+  padding-top:96px;
+}
+
 .product-duo{
   display:grid;
   grid-template-columns:1fr 1fr;

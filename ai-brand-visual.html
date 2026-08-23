@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-NOTE-ALIGN-R1" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-NAV-MENU-R1" />
   </head>
   <body>
     <div class="aurora-bg" aria-hidden="true">
@@ -17,10 +17,17 @@
         <a href="/index-recover.html#home"><span>+</span> 首页</a>
         <a href="/index-recover.html#about"><span>+</span> 经历</a>
         <a href="/index-recover.html#work"><span>+</span> 项目</a>
-        <a href="/index-recover.html#strength"><span>+</span> 能力</a>
+        <a class="nav-skill-trigger" href="/index-recover.html#strength" aria-haspopup="true" aria-expanded="false"><span>+</span> 能力</a>
       </nav>
       <a class="contact-pill" href="/index-recover.html#contact">联系合作 <b>↗</b></a>
     </header>
+    <div class="nav-skills-menu" aria-label="能力列表">
+      <a href="/index-recover.html#strength" data-skill="AI视频"><i aria-hidden="true"></i>AI视频</a>
+      <a href="/ai-brand-visual.html" data-skill="AI品牌视觉"><i aria-hidden="true"></i>AI品牌视觉</a>
+      <a href="/index-recover.html#strength" data-skill="品牌策划"><i aria-hidden="true"></i>品牌策划</a>
+      <a href="/three-dimension.html" data-skill="C4D三维"><i aria-hidden="true"></i>C4D三维</a>
+      <a href="/three-dimension.html" data-skill="电商设计"><i aria-hidden="true"></i>电商设计</a>
+    </div>
 
     <main>
       <section class="hero shell">
@@ -359,6 +366,40 @@
           window.setInterval(() => showSlide(activeIndex + 1), 3600);
         }
       });
+
+      (() => {
+        const trigger = document.querySelector(".nav-skill-trigger");
+        const menu = document.querySelector(".nav-skills-menu");
+        const nav = document.querySelector(".site-nav");
+        if (!trigger || !menu || !nav) return;
+
+        const closeMenu = () => {
+          menu.classList.remove("is-open");
+          trigger.setAttribute("aria-expanded", "false");
+        };
+
+        const openMenu = () => {
+          const rect = trigger.getBoundingClientRect();
+          menu.style.top = `${Math.round(rect.bottom + 8)}px`;
+          menu.style.left = `${Math.round(rect.left)}px`;
+          menu.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+        };
+
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          menu.classList.contains("is-open") ? closeMenu() : openMenu();
+        });
+
+        document.addEventListener("click", (event) => {
+          if (nav.contains(event.target) || menu.contains(event.target)) return;
+          closeMenu();
+        });
+
+        window.addEventListener("resize", closeMenu);
+        window.addEventListener("scroll", closeMenu, { passive: true });
+      })();
 
       document.querySelectorAll(".duo-slider").forEach((slider) => {
         const track = slider.querySelector(".duo-slider__track");

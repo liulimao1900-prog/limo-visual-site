@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-PRODUCT-FOUR-R1" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-TRIM-R1" />
   </head>
   <body>
     <div class="aurora-bg" aria-hidden="true">
@@ -91,41 +91,6 @@
           <button class="duo-slider__arrow duo-slider__arrow--next" type="button" aria-label="下一组作品">›</button>
         </div>
         <div class="duo-slider__dots" aria-label="轮播分页"></div>
-      </section>
-
-      <section class="accordion-feature shell" aria-label="AI品牌视觉项目模块">
-        <div class="accordion-gallery" role="list" style="--ag-gap:12px;--ag-radius:14px;--ag-height:460px;--ag-expand-ratio:.52;--ag-parallax:.5;--ag-tilt:8deg;">
-          <a class="ag-panel" href="/assets/nsve-baiyan-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="宝岛品牌视觉">
-            <span class="ag-panel__frame">
-              <span class="ag-panel__media"><img src="/assets/nsve-baiyan-01.webp" alt="宝岛眼镜品牌视觉" draggable="false" /></span>
-              <span class="ag-panel__overlay" aria-hidden="true"></span>
-            </span>
-          </a>
-          <a class="ag-panel" href="/assets/charmant-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="夏蒙新品视觉">
-            <span class="ag-panel__frame">
-              <span class="ag-panel__media"><img src="/assets/charmant-01.webp" alt="夏蒙新品视觉" draggable="false" /></span>
-              <span class="ag-panel__overlay" aria-hidden="true"></span>
-            </span>
-          </a>
-          <a class="ag-panel ag-panel--active" href="/assets/mirage-02-cover.webp" target="_blank" rel="noreferrer" role="listitem" aria-current="true" aria-label="魅影产品质感">
-            <span class="ag-panel__frame">
-              <span class="ag-panel__media"><img src="/assets/mirage-02-cover.webp" alt="魅影产品质感" draggable="false" /></span>
-              <span class="ag-panel__overlay" aria-hidden="true"></span>
-            </span>
-          </a>
-          <a class="ag-panel" href="/assets/mirage-fashion-thumb-04.jpg" target="_blank" rel="noreferrer" role="listitem" aria-label="人物形象修图">
-            <span class="ag-panel__frame">
-              <span class="ag-panel__media"><img src="/assets/mirage-fashion-thumb-04.jpg" alt="人物形象修图" draggable="false" /></span>
-              <span class="ag-panel__overlay" aria-hidden="true"></span>
-            </span>
-          </a>
-          <a class="ag-panel" href="/assets/archive-glasses-close-01.webp" target="_blank" rel="noreferrer" role="listitem" aria-label="镜框细节输出">
-            <span class="ag-panel__frame">
-              <span class="ag-panel__media"><img src="/assets/archive-glasses-close-01.webp" alt="镜框细节输出" draggable="false" /></span>
-              <span class="ag-panel__overlay" aria-hidden="true"></span>
-            </span>
-          </a>
-        </div>
       </section>
 
       <section class="statement shell">
@@ -486,79 +451,6 @@
           dotsSelector: ".wide-slider__dots",
           dotClass: "wide-slider__dot",
         });
-      });
-
-      document.querySelectorAll(".accordion-gallery").forEach((gallery) => {
-        const panels = [...gallery.querySelectorAll(".ag-panel")];
-        const media = panels.map((panel) => panel.querySelector(".ag-panel__media"));
-        const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-        let activeIndex = panels.findIndex((panel) => panel.classList.contains("ag-panel--active"));
-        if (activeIndex < 0) activeIndex = Math.min(2, panels.length - 1);
-
-        const getNumberVar = (name, fallback) => {
-          const value = Number.parseFloat(getComputedStyle(gallery).getPropertyValue(name));
-          return Number.isFinite(value) ? value : fallback;
-        };
-
-        const applyLayout = () => {
-          const gap = getNumberVar("--ag-gap", 12);
-          const expandRatio = Math.min(Math.max(getNumberVar("--ag-expand-ratio", 0.52), 0.2), 0.9);
-          const parallax = getNumberVar("--ag-parallax", 0.5);
-          const tilt = getNumberVar("--ag-tilt", 8);
-          const rect = gallery.getBoundingClientRect();
-          const usable = Math.max(rect.width - gap * Math.max(panels.length - 1, 0), 120);
-          const mediaSize = Math.max(140, usable * expandRatio * 1.22);
-          const grow = panels.length > 1 ? (expandRatio * (panels.length - 1)) / (1 - expandRatio) : 1;
-
-          gallery.style.setProperty("--ag-media-size", `${mediaSize}px`);
-          panels.forEach((panel, index) => {
-            const isActive = index === activeIndex;
-            const rotation = isActive ? 0 : index < activeIndex ? tilt : -tilt;
-            const drift = Math.max(-1.5, Math.min(1.5, activeIndex - index));
-            const shift = drift * parallax * mediaSize * 0.06;
-            panel.classList.toggle("ag-panel--active", isActive);
-            panel.style.flexGrow = isActive ? grow : 1;
-            panel.style.setProperty("--ag-rotate-y", `${rotation}deg`);
-            panel.style.setProperty("--ag-rotate-x", "0deg");
-            panel.style.setProperty("--ag-dim", isActive ? 0 : 0.35);
-            panel.setAttribute("aria-current", isActive ? "true" : "false");
-            media[index]?.style.setProperty("--ag-shift-x", isActive ? "0px" : `${shift}px`);
-            media[index]?.style.setProperty("--ag-shift-y", "0px");
-            media[index]?.style.setProperty("--ag-gray", isActive ? 0 : 1);
-            media[index]?.style.setProperty("--ag-dim", isActive ? 0 : 0.35);
-          });
-        };
-
-        const setActive = (activePanel) => {
-          activeIndex = panels.indexOf(activePanel);
-          applyLayout();
-        };
-
-        panels.forEach((panel, index) => {
-          panel.tabIndex = 0;
-          panel.addEventListener("mouseenter", () => setActive(panel));
-          panel.addEventListener("focus", () => setActive(panel));
-          panel.addEventListener("click", (event) => {
-            if (!panel.classList.contains("ag-panel--active")) {
-              event.preventDefault();
-              setActive(panel);
-            }
-          });
-          panel.addEventListener("keydown", (event) => {
-            if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
-            event.preventDefault();
-            const step = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
-            const next = panels[(index + step + panels.length) % panels.length];
-            setActive(next);
-            next.focus();
-          });
-        });
-
-        if (!prefersReduced && "ResizeObserver" in window) {
-          const observer = new ResizeObserver(applyLayout);
-          observer.observe(gallery);
-        }
-        applyLayout();
       });
 
       document.querySelectorAll("video[data-src]").forEach((video) => {

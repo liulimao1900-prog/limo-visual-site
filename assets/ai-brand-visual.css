@@ -303,6 +303,10 @@ footer{
   text-shadow:0 12px 34px #050506a8;
 }
 
+.page-brand-planning .duo-slider{
+  padding-top:108px;
+}
+
 .feature-visual{
   position:relative;
   padding:56px 0 104px;
@@ -691,6 +695,9 @@ footer a{color:var(--orange)}
   .planning-hero .hero-note{
     width:min(420px,100%);
     margin-top:24px;
+  }
+  .page-brand-planning .duo-slider{
+    padding-top:72px;
   }
   .feature-visual{padding:28px 0 68px}
   .feature-copy{top:54px;left:22px}

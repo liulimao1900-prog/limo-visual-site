@@ -1,5 +1,5 @@
 (() => {
-  const VERSION = "LIMO-BRAND-VISUAL-PAGE-R1";
+  const VERSION = "LIMO-BRAND-PLANNING-PAGE-R1";
   const WORK_WALL_BG_VIDEO = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4";
 
   const text = {
@@ -1241,8 +1241,14 @@
   const enableAboutSkillLinks = () => {
     document.querySelectorAll(".about-skill-list li").forEach((item) => {
       const skill = (item.textContent || "").trim();
-      const target = skill === "AI品牌视觉" ? "/ai-brand-visual.html" : "/three-dimension.html";
-      if (!["AI品牌视觉", "C4D三维", "电商设计"].includes(skill) || item.dataset.linkReady === VERSION) return;
+      const pageTargets = {
+        "AI品牌视觉": "/ai-brand-visual.html",
+        "品牌策划": "/brand-planning.html",
+        "C4D三维": "/three-dimension.html",
+        "电商设计": "/three-dimension.html",
+      };
+      const target = pageTargets[skill];
+      if (!target || item.dataset.linkReady === VERSION) return;
       item.classList.add("is-clickable-skill");
       item.setAttribute("role", "link");
       item.setAttribute("tabindex", "0");
@@ -1281,6 +1287,10 @@
         abilityButton.setAttribute("aria-expanded", "false");
         if (item.dataset.skill === "AI品牌视觉") {
           window.location.href = "/ai-brand-visual.html";
+          return;
+        }
+        if (item.dataset.skill === "品牌策划") {
+          window.location.href = "/brand-planning.html";
           return;
         }
         if (["C4D三维", "电商设计"].includes(item.dataset.skill)) {

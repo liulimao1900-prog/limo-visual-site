@@ -548,6 +548,95 @@ footer{
   letter-spacing:.12em;
 }
 
+.wide-slider{
+  position:relative;
+  padding:86px 0 92px;
+  border-bottom:1px solid var(--line);
+}
+
+.wide-slider__stage{
+  position:relative;
+}
+
+.wide-slider__viewport{
+  width:min(1360px,100%);
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:24px;
+  background:#111822;
+  box-shadow:0 34px 90px #0006;
+}
+
+.wide-slider__track{
+  display:flex;
+  width:100%;
+  transition:transform .78s cubic-bezier(.2,.8,.2,1);
+  will-change:transform;
+}
+
+.wide-slide{
+  flex:0 0 100%;
+}
+
+.wide-slide img{
+  width:100%;
+  aspect-ratio:12 / 7;
+  height:auto;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.9) contrast(1.05) brightness(.92);
+}
+
+.wide-slider__arrow{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  width:42px;
+  height:42px;
+  border:1px solid #ffffff33;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#f6f3ed;
+  background:#ffffff08;
+  font:300 34px/1 Arial,sans-serif;
+  cursor:pointer;
+  transform:translateY(-50%);
+  transition:background .25s,border-color .25s,transform .25s;
+}
+
+.wide-slider__arrow:hover{
+  border-color:#ffffff72;
+  background:#ffffff14;
+  transform:translateY(-50%) scale(1.04);
+}
+
+.wide-slider__arrow--prev{left:24px}
+.wide-slider__arrow--next{right:24px}
+
+.wide-slider__dots{
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  margin-top:22px;
+}
+
+.wide-slider__dot{
+  width:7px;
+  height:7px;
+  border:0;
+  border-radius:999px;
+  padding:0;
+  background:#ffffff45;
+  cursor:pointer;
+  transition:width .25s,background .25s;
+}
+
+.wide-slider__dot.is-active{
+  width:24px;
+  background:#fff;
+}
+
 .section-label{
   display:flex;
   justify-content:space-between;
@@ -764,6 +853,17 @@ footer a{color:var(--orange)}
   .statement h2{font-size:clamp(33px,8.6vw,56px);line-height:1.12;letter-spacing:-.025em}
   .statement-tags{grid-template-columns:1fr 1fr;margin-top:30px;gap:12px}
   .statement-tags span{min-height:58px;padding:14px 15px;font-size:10px;line-height:1.45}
+  .wide-slider{padding:52px 0 64px}
+  .wide-slider__viewport{border-radius:16px}
+  .wide-slide img{aspect-ratio:1 / .72}
+  .wide-slider__arrow{
+    width:34px;
+    height:34px;
+    font-size:28px;
+  }
+  .wide-slider__arrow--prev{left:12px}
+  .wide-slider__arrow--next{right:12px}
+  .wide-slider__dots{margin-top:16px}
   .portrait-wall{padding:64px 0 78px}
   .portrait-grid{grid-template-columns:1fr 1fr;gap:12px}
   .section-label{font-size:11px}

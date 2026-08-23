@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | AI品牌视觉</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-DUO-R1" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-VISUAL-WIDE-R1" />
   </head>
   <body>
     <div class="aurora-bg" aria-hidden="true">
@@ -139,6 +139,33 @@
           <span>HAND-PAINTED 3D RENDERING</span>
           <span>WORK FINISHING</span>
         </div>
+      </section>
+
+      <section class="wide-slider shell" aria-label="AI品牌视觉横屏大图轮播">
+        <div class="wide-slider__stage">
+          <button class="wide-slider__arrow wide-slider__arrow--prev" type="button" aria-label="上一张横屏作品">‹</button>
+          <div class="wide-slider__viewport">
+            <div class="wide-slider__track">
+              <article class="wide-slide" aria-label="横屏作品 01">
+                <img src="/assets/ai-brand-wide-01.webp" alt="AI品牌视觉横屏大图 01" draggable="false" />
+              </article>
+              <article class="wide-slide" aria-label="横屏作品 02">
+                <img src="/assets/ai-brand-wide-02.webp?v=NOLOGO-R1" alt="AI品牌视觉横屏大图 02" draggable="false" />
+              </article>
+              <article class="wide-slide" aria-label="横屏作品 03">
+                <img src="/assets/ai-brand-wide-03.webp" alt="AI品牌视觉横屏大图 03" draggable="false" />
+              </article>
+              <article class="wide-slide" aria-label="横屏作品 04">
+                <img src="/assets/ai-brand-wide-04.webp" alt="AI品牌视觉横屏大图 04" draggable="false" />
+              </article>
+              <article class="wide-slide" aria-label="横屏作品 05">
+                <img src="/assets/ai-brand-wide-05.webp" alt="AI品牌视觉横屏大图 05" draggable="false" />
+              </article>
+            </div>
+          </div>
+          <button class="wide-slider__arrow wide-slider__arrow--next" type="button" aria-label="下一张横屏作品">›</button>
+        </div>
+        <div class="wide-slider__dots" aria-label="横屏轮播分页"></div>
       </section>
 
       <section class="portrait-wall shell">
@@ -405,19 +432,19 @@
         window.addEventListener("scroll", closeMenu, { passive: true });
       })();
 
-      document.querySelectorAll(".duo-slider").forEach((slider) => {
-        const track = slider.querySelector(".duo-slider__track");
-        const slides = [...slider.querySelectorAll(".duo-slide")];
-        const prev = slider.querySelector(".duo-slider__arrow--prev");
-        const next = slider.querySelector(".duo-slider__arrow--next");
-        const dotsWrap = slider.querySelector(".duo-slider__dots");
+      const setupSlider = ({ root, trackSelector, slideSelector, prevSelector, nextSelector, dotsSelector, dotClass }) => {
+        const track = root.querySelector(trackSelector);
+        const slides = [...root.querySelectorAll(slideSelector)];
+        const prev = root.querySelector(prevSelector);
+        const next = root.querySelector(nextSelector);
+        const dotsWrap = root.querySelector(dotsSelector);
         if (!track || slides.length < 2 || !dotsWrap) return;
 
         let activeIndex = 0;
         const dots = slides.map((_, index) => {
           const dot = document.createElement("button");
           dot.type = "button";
-          dot.className = "duo-slider__dot";
+          dot.className = dotClass;
           dot.setAttribute("aria-label", `切换到第 ${index + 1} 组作品`);
           dot.addEventListener("click", () => show(index));
           dotsWrap.appendChild(dot);
@@ -435,12 +462,36 @@
 
         prev?.addEventListener("click", () => show(activeIndex - 1));
         next?.addEventListener("click", () => show(activeIndex + 1));
-        slider.addEventListener("keydown", (event) => {
+        root.addEventListener("keydown", (event) => {
           if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
           event.preventDefault();
           show(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
         });
         show(0);
+      };
+
+      document.querySelectorAll(".duo-slider").forEach((slider) => {
+        setupSlider({
+          root: slider,
+          trackSelector: ".duo-slider__track",
+          slideSelector: ".duo-slide",
+          prevSelector: ".duo-slider__arrow--prev",
+          nextSelector: ".duo-slider__arrow--next",
+          dotsSelector: ".duo-slider__dots",
+          dotClass: "duo-slider__dot",
+        });
+      });
+
+      document.querySelectorAll(".wide-slider").forEach((slider) => {
+        setupSlider({
+          root: slider,
+          trackSelector: ".wide-slider__track",
+          slideSelector: ".wide-slide",
+          prevSelector: ".wide-slider__arrow--prev",
+          nextSelector: ".wide-slider__arrow--next",
+          dotsSelector: ".wide-slider__dots",
+          dotClass: "wide-slider__dot",
+        });
       });
 
       document.querySelectorAll(".accordion-gallery").forEach((gallery) => {

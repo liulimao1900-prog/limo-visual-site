@@ -307,6 +307,60 @@ footer{
   padding-top:108px;
 }
 
+.planning-frame-showcase{
+  padding:118px 0 34px;
+  border-bottom:1px solid var(--line);
+}
+
+.planning-frame-set{
+  display:grid;
+  gap:34px;
+}
+
+.planning-frame-set + .planning-frame-set{
+  margin-top:96px;
+}
+
+.planning-frame-row{
+  display:grid;
+  gap:28px;
+}
+
+.planning-frame-row--three{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.planning-frame-row--two{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  width:min(920px,76%);
+  margin-left:auto;
+}
+
+.planning-frame{
+  margin:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:#111822;
+  box-shadow:0 28px 90px #00000042;
+}
+
+.planning-frame--portrait{
+  aspect-ratio:3/4;
+}
+
+.planning-frame--tall{
+  aspect-ratio:9/15.5;
+}
+
+.planning-frame img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.94) contrast(1.05) brightness(.94);
+}
+
 .feature-visual{
   position:relative;
   padding:56px 0 104px;
@@ -698,6 +752,27 @@ footer a{color:var(--orange)}
   }
   .page-brand-planning .duo-slider{
     padding-top:72px;
+  }
+  .planning-frame-showcase{
+    padding:76px 0 26px;
+  }
+  .planning-frame-set{
+    gap:18px;
+  }
+  .planning-frame-set + .planning-frame-set{
+    margin-top:54px;
+  }
+  .planning-frame-row{
+    gap:14px;
+  }
+  .planning-frame-row--three,
+  .planning-frame-row--two{
+    width:100%;
+    grid-template-columns:1fr;
+    margin-left:0;
+  }
+  .planning-frame{
+    border-radius:16px;
   }
   .feature-visual{padding:28px 0 68px}
   .feature-copy{top:54px;left:22px}

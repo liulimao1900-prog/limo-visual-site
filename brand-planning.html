@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080c" />
     <title>LIMO Visual | 品牌策划</title>
-    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-PLANNING-R1" />
+    <link rel="stylesheet" href="/assets/ai-brand-visual.css?v=LIMO-BRAND-PLANNING-HERO-FULL-R1" />
   </head>
-  <body>
+  <body class="page-brand-planning">
     <div class="aurora-bg" aria-hidden="true">
       <canvas id="aurora-canvas"></canvas>
     </div>
@@ -30,9 +30,11 @@
     </div>
 
     <main>
-      <section class="hero shell">
-        <div class="hero-kicker">BRAND PLANNING / STRATEGY SYSTEM</div>
-        <div class="hero-layout">
+      <section class="planning-hero" aria-label="品牌策划首屏视觉">
+        <img class="planning-hero__image" src="/assets/brand-planning-hero-01.png" alt="品牌策划首屏眼镜品牌视觉" />
+        <div class="planning-hero__overlay" aria-hidden="true"></div>
+        <div class="planning-hero__content shell">
+          <div class="hero-kicker">BRAND PLANNING / STRATEGY SYSTEM</div>
           <div class="hero-copy">
             <p>品牌策划与视觉策略</p>
             <h1>品牌策略定位<br />内容视觉系统</h1>
@@ -41,20 +43,6 @@
             <span>从品牌定位、产品卖点、用户场景到传播内容，把策略语言转译成可执行、可延展的视觉系统。</span>
           </div>
         </div>
-      </section>
-
-      <section class="feature-visual shell">
-        <div class="feature-copy">
-          <p>镜客眼镜</p>
-          <h2>宝岛品牌</h2>
-        </div>
-        <figure class="feature-carousel" aria-label="品牌策划视觉轮播">
-          <img class="is-active" src="/assets/ai-brand-hero-slide-01.webp" alt="品牌策划首屏作品 01" />
-          <img src="/assets/ai-brand-hero-slide-02.webp" alt="品牌策划首屏作品 02" />
-          <img src="/assets/ai-brand-hero-slide-03.webp" alt="品牌策划首屏作品 03" />
-          <img src="/assets/ai-brand-hero-slide-04.webp" alt="品牌策划首屏作品 04" />
-          <img src="/assets/ai-brand-hero-slide-05.webp" alt="品牌策划首屏作品 05" />
-        </figure>
       </section>
 
       <section class="duo-slider shell" aria-label="品牌策划双图轮播">
@@ -384,22 +372,6 @@
         frame = requestAnimationFrame(render);
         window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
       })();
-
-      document.querySelectorAll(".feature-carousel").forEach((carousel) => {
-        const slides = [...carousel.querySelectorAll("img")];
-        if (slides.length < 2) return;
-        let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
-        if (activeIndex < 0) activeIndex = 0;
-        const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-        const showSlide = (nextIndex) => {
-          slides[activeIndex]?.classList.remove("is-active");
-          activeIndex = nextIndex % slides.length;
-          slides[activeIndex]?.classList.add("is-active");
-        };
-        if (!prefersReduced) {
-          window.setInterval(() => showSlide(activeIndex + 1), 3600);
-        }
-      });
 
       (() => {
         const trigger = document.querySelector(".nav-skill-trigger");

@@ -410,10 +410,10 @@ footer{
 
 .statement{
   position:relative;
-  padding:96px 0 86px;
+  padding:132px 0 118px;
   display:grid;
   grid-template-columns:1fr;
-  gap:42px;
+  gap:58px;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
@@ -453,7 +453,7 @@ footer{
 
 .wide-slider{
   position:relative;
-  padding:86px 0 92px;
+  padding:124px 0 116px;
   border-bottom:1px solid var(--line);
 }
 
@@ -559,7 +559,7 @@ footer{
 .portrait-wall .section-label{margin-bottom:42px}
 .product-duo{
   position:relative;
-  padding:0 0 128px;
+  padding:0 0 174px;
 }
 
 .product-duo--expanded{
@@ -590,7 +590,7 @@ footer{
 
 .product-label{
   grid-column:1/-1;
-  margin-top:42px;
+  margin-top:70px;
 }
 
 footer{
@@ -599,7 +599,7 @@ footer{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:28px 0;
+  padding:42px 0 38px;
   color:#777b86;
   border-top:1px solid var(--line);
   font:10px/1.2 Consolas,"Microsoft YaHei",monospace;
@@ -647,11 +647,11 @@ footer a{color:var(--orange)}
   .duo-slider__arrow--prev{left:12px}
   .duo-slider__arrow--next{right:12px}
   .duo-slider__dots{bottom:26px}
-  .statement{padding:64px 0 54px;display:block}
+  .statement{padding:82px 0 72px;display:block}
   .statement h2{font-size:clamp(33px,8.6vw,56px);line-height:1.12;letter-spacing:-.025em}
   .statement-tags{grid-template-columns:1fr 1fr;margin-top:30px;gap:12px}
   .statement-tags span{min-height:58px;padding:14px 15px;font-size:10px;line-height:1.45}
-  .wide-slider{padding:52px 0 64px}
+  .wide-slider{padding:76px 0 82px}
   .wide-slider__stage{width:100%}
   .wide-slider__viewport{border-radius:16px}
   .wide-slide img{aspect-ratio:1 / .72}
@@ -665,9 +665,9 @@ footer a{color:var(--orange)}
   .wide-slider__dots{margin-top:16px}
   .portrait-wall{padding:64px 0 78px}
   .section-label{font-size:11px}
-  .product-duo{width:100%;grid-template-columns:1fr;gap:14px;padding-bottom:78px}
+  .product-duo{width:100%;grid-template-columns:1fr;gap:14px;padding-bottom:110px}
   .product-label{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  footer{padding:22px 0}
+  footer{padding:34px 0 30px}
 }
 
 @media(max-width:520px){

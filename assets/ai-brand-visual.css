@@ -307,9 +307,56 @@ footer{
   padding-top:108px;
 }
 
+.page-brand-planning .duo-slider--triple{
+  padding-top:126px;
+  padding-bottom:138px;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slider__stage{
+  min-height:820px;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slider__viewport{
+  width:min(1500px,88vw);
+}
+
+.page-brand-planning .duo-slider--triple .duo-slide{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  padding:82px 0 98px;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slide img{
+  aspect-ratio:3/4.25;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slide img:first-child{
+  border-radius:28px 0 0 28px;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slide img:not(:first-child):not(:last-child){
+  border-radius:0;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slide img:last-child{
+  border-radius:0 28px 28px 0;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slider__dots{
+  bottom:58px;
+}
+
 .planning-frame-showcase{
   padding:118px 0 34px;
   border-bottom:1px solid var(--line);
+}
+
+.planning-frame-showcase--upper{
+  padding-bottom:0;
+  border-bottom:0;
+}
+
+.planning-frame-showcase--lower{
+  padding-top:28px;
 }
 
 .planning-frame-set{
@@ -751,8 +798,34 @@ footer a{color:var(--orange)}
   .page-brand-planning .duo-slider{
     padding-top:72px;
   }
+  .page-brand-planning .duo-slider--triple{
+    padding-top:84px;
+    padding-bottom:96px;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slider__stage{
+    min-height:0;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slider__viewport{
+    width:calc(100% - 64px);
+  }
+  .page-brand-planning .duo-slider--triple .duo-slide{
+    grid-template-columns:1fr;
+    padding:44px 0 66px;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slide img{
+    aspect-ratio:1/.9;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slider__dots{
+    bottom:28px;
+  }
   .planning-frame-showcase{
     padding:76px 0 26px;
+  }
+  .planning-frame-showcase--upper{
+    padding-bottom:0;
+  }
+  .planning-frame-showcase--lower{
+    padding-top:14px;
   }
   .planning-frame-set{
     gap:18px;

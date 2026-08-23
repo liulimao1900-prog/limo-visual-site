@@ -363,10 +363,6 @@ footer{
   border-bottom:0;
 }
 
-.planning-frame-showcase--lower{
-  padding-top:28px;
-}
-
 .planning-frame-set{
   display:grid;
   gap:34px;
@@ -837,9 +833,6 @@ footer a{color:var(--orange)}
   }
   .planning-frame-showcase--upper{
     padding-bottom:0;
-  }
-  .planning-frame-showcase--lower{
-    padding-top:14px;
   }
   .planning-frame-set{
     gap:18px;

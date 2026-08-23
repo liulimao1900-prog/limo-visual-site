@@ -345,6 +345,14 @@ footer{
   bottom:58px;
 }
 
+.page-brand-planning .duo-slider--triple .duo-slider__arrow--prev{
+  left:-74px;
+}
+
+.page-brand-planning .duo-slider--triple .duo-slider__arrow--next{
+  right:-74px;
+}
+
 .planning-frame-showcase{
   padding:118px 0 34px;
   border-bottom:1px solid var(--line);
@@ -817,6 +825,12 @@ footer a{color:var(--orange)}
   }
   .page-brand-planning .duo-slider--triple .duo-slider__dots{
     bottom:28px;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slider__arrow--prev{
+    left:12px;
+  }
+  .page-brand-planning .duo-slider--triple .duo-slider__arrow--next{
+    right:12px;
   }
   .planning-frame-showcase{
     padding:76px 0 26px;

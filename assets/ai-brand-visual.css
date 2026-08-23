@@ -177,9 +177,9 @@ footer{
   max-width:1180px;
   color:var(--title);
   font-size:clamp(52px,6.35vw,104px);
-  line-height:.94;
+  line-height:1.02;
   font-weight:520;
-  letter-spacing:-.075em;
+  letter-spacing:-.045em;
   text-wrap:balance;
 }
 
@@ -266,11 +266,7 @@ footer{
 .duo-slider__stage{
   position:relative;
   min-height:520px;
-  border:1px solid #ffffff16;
-  border-radius:16px;
-  overflow:hidden;
-  background:#070b13b8;
-  box-shadow:inset 0 1px 0 #ffffff0a,0 28px 80px -56px #000;
+  overflow:visible;
 }
 
 .duo-slider__viewport{
@@ -653,7 +649,7 @@ footer a{color:var(--orange)}
   .contact-pill{font-size:11px}
   .hero{min-height:0;padding-top:104px;padding-bottom:52px}
   .hero-layout{display:block;margin-top:28px;padding-bottom:38px}
-  .hero-copy h1{font-size:clamp(42px,11.5vw,70px);line-height:.98}
+  .hero-copy h1{font-size:clamp(42px,11.5vw,70px);line-height:1.05;letter-spacing:-.035em}
   .hero-note{margin-top:28px;font-size:15px;line-height:1.85}
   .feature-visual{padding:28px 0 68px}
   .feature-copy{top:54px;left:22px}

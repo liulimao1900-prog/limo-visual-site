@@ -60,19 +60,23 @@ footer{
 .site-nav{
   position:absolute;
   z-index:20;
-  top:0;
+  top:16px;
   left:50%;
   transform:translateX(-50%);
-  width:min(1700px,calc(100vw - 120px));
+  width:min(1650px,calc(100vw - 120px));
   max-width:none;
-  height:92px;
+  height:58px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:0;
+  padding:0 22px;
+  border:1px solid #ffffff3c;
+  border-radius:18px;
   font:inherit;
   letter-spacing:0;
-  background:transparent;
+  background:linear-gradient(180deg,#2a2b31e8,#23242ae3);
+  box-shadow:0 18px 48px #0005,inset 0 1px 0 #ffffff1c;
+  backdrop-filter:blur(18px);
 }
 
 .brand{
@@ -80,7 +84,7 @@ footer{
   font-size:24px;
   font-weight:800;
   line-height:1;
-  letter-spacing:6px;
+  letter-spacing:4px;
 }
 
 .brand span{
@@ -92,29 +96,29 @@ footer{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:30px;
+  gap:clamp(86px,9.2vw,160px);
   min-width:0;
 }
 
 .nav-links a{
-  color:rgba(244,242,238,.56);
-  font:500 15px/1 "Microsoft YaHei",sans-serif;
+  color:#d3d1d5;
+  font:500 14px/1 "Microsoft YaHei",sans-serif;
   letter-spacing:0;
   white-space:nowrap;
   transition:color .25s;
 }
 
 .nav-links a:hover{color:#fff}
-.nav-links sup{
-  color:currentColor;
-  margin-left:4px;
-  font:9px/1 Consolas,"Microsoft YaHei",monospace;
+.nav-links span{
+  color:var(--orange);
+  margin-right:8px;
+  font:700 13px/1 Consolas,"Microsoft YaHei",monospace;
 }
 
 .contact-pill{
   border:1px solid #ffffffa6;
   border-radius:999px;
-  padding:12px 16px 12px 19px;
+  padding:13px 18px 13px 21px;
   color:var(--ink);
   letter-spacing:0;
   font:12px/1 "Microsoft YaHei",sans-serif;
@@ -520,7 +524,7 @@ footer a{color:var(--orange)}
 
 @media(max-width:900px){
   :root{--shell:calc(100vw - 36px)}
-  .site-nav{width:calc(100vw - 44px);height:72px}
+  .site-nav{top:12px;width:calc(100vw - 44px);height:58px;border-radius:17px}
   .nav-links{display:none}
   .contact-pill{font-size:11px}
   .hero{min-height:0;padding-top:104px;padding-bottom:52px}

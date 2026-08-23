@@ -339,14 +339,12 @@ footer{
 .planning-frame{
   margin:0;
   overflow:hidden;
-  border:1px solid var(--line);
   border-radius:24px;
-  background:#111822;
-  box-shadow:0 28px 90px #00000042;
+  background:transparent;
 }
 
 .planning-frame--portrait{
-  aspect-ratio:3/4;
+  aspect-ratio:3/4.62;
 }
 
 .planning-frame--tall{

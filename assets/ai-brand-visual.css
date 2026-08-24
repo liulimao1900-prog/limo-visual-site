@@ -306,6 +306,8 @@ footer{
 
 .planning-hero .hero-note{
   justify-self:end;
+  width:min(760px,100%);
+  text-align:right;
   color:#f3e1d6;
   text-shadow:0 12px 34px #050506a8;
 }

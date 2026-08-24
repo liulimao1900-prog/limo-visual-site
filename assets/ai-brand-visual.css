@@ -290,13 +290,13 @@ footer{
 .planning-hero .hero-copy{
   align-self:end;
   justify-self:end;
-  width:min(760px,100%);
+  width:min(980px,calc(100vw - 96px));
   text-align:right;
   transform:translateY(-100px);
 }
 
 .planning-hero .hero-copy h1{
-  max-width:760px;
+  max-width:none;
   color:#fff8f0;
   font-size:clamp(46px,4.85vw,78px);
   line-height:1.03;
@@ -304,7 +304,12 @@ footer{
   text-shadow:0 22px 50px #0505068c;
 }
 
+.planning-hero .hero-copy h1 span{
+  white-space:nowrap;
+}
+
 .planning-hero .hero-note{
+  grid-column:2;
   justify-self:end;
   width:min(760px,100%);
   text-align:right;
@@ -837,9 +842,14 @@ footer a{color:var(--orange)}
     padding-bottom:54px;
   }
   .planning-hero .hero-copy{
+    width:100%;
     transform:none;
   }
+  .planning-hero .hero-copy h1 span{
+    white-space:normal;
+  }
   .planning-hero .hero-note{
+    grid-column:auto;
     width:min(420px,100%);
     margin-top:24px;
   }

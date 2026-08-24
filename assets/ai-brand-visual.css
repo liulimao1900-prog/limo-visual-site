@@ -292,7 +292,7 @@ footer{
   justify-self:end;
   width:min(980px,calc(100vw - 96px));
   text-align:right;
-  transform:translateY(-100px);
+  transform:translateY(-250px);
 }
 
 .planning-hero .hero-copy h1{
@@ -315,6 +315,7 @@ footer{
   text-align:right;
   color:#f3e1d6;
   text-shadow:0 12px 34px #050506a8;
+  transform:translateY(-150px);
 }
 
 .page-brand-planning .duo-slider{

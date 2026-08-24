@@ -713,7 +713,10 @@ footer{
 }
 
 .wide-slider--duo .wide-slide img{
+  aspect-ratio:9 / 16;
   height:100%;
+  object-fit:contain;
+  background:#f4d99f;
 }
 
 .wide-slider__arrow{
@@ -969,6 +972,7 @@ footer a{color:var(--orange)}
     grid-template-columns:1fr;
   }
   .wide-slide img{aspect-ratio:1 / .72}
+  .wide-slider--duo .wide-slide img{aspect-ratio:9 / 16}
   .wide-slider__arrow{
     width:34px;
     height:34px;

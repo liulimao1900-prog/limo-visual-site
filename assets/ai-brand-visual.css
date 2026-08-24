@@ -407,6 +407,7 @@ footer{
   border:0;
   outline:0;
   background:#05080d;
+  cursor:pointer;
 }
 
 .planning-frame-set{

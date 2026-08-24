@@ -719,8 +719,8 @@ footer{
 .wide-slider--duo .wide-slide img{
   aspect-ratio:9 / 13;
   height:100%;
-  object-fit:contain;
-  background:#f4d99f;
+  object-fit:cover;
+  object-position:center center;
 }
 
 .wide-slider__arrow{

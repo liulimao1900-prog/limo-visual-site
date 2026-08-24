@@ -291,7 +291,7 @@ footer{
   align-self:end;
   justify-self:start;
   text-align:left;
-  transform:translate(1140px,-100px);
+  transform:translate(-1140px,-100px);
 }
 
 .planning-hero .hero-copy h1{

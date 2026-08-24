@@ -184,6 +184,25 @@ footer{
   background:#fff;
 }
 
+.page-brand-planning .site-nav{
+  top:10px;
+  width:min(1650px,calc(100vw - 120px));
+  height:58px;
+  padding:0 22px;
+  border:1px solid #ffffff3c;
+  border-radius:18px;
+  background:linear-gradient(180deg,#2a2b31e8,#23242ae3);
+  box-shadow:0 18px 48px #0005,inset 0 1px 0 #ffffff1c;
+}
+
+.page-brand-planning .brand{
+  letter-spacing:6px;
+}
+
+.page-brand-planning .contact-pill{
+  padding:12px 16px 12px 19px;
+}
+
 .hero{
   position:relative;
   min-height:50vh;
@@ -285,6 +304,11 @@ footer{
 .planning-hero .hero-kicker,
 .planning-hero .hero-copy p{
   color:#f4c09e;
+}
+
+.planning-hero .hero-kicker{
+  opacity:.42;
+  transform:translateY(170px);
 }
 
 .planning-hero .hero-copy{
@@ -631,6 +655,10 @@ footer{
   gap:58px;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
+}
+
+.page-brand-planning .statement{
+  border-top:0;
 }
 
 .statement h2{

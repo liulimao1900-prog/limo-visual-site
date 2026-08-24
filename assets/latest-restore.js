@@ -1343,15 +1343,15 @@
     enableAboutSkillLinks();
     enableSkillsMenu();
     document.querySelectorAll('a[href^="tel:"], [data-phone]').forEach((element) => {
-      element.textContent = element.textContent.replaceAll("18072458088", "18072458000");
+      element.textContent = element.textContent.replaceAll("18072458088", "18072458099");
       if (element.matches('a[href^="tel:"]')) {
-        element.href = element.href.replaceAll("18072458088", "18072458000");
+        element.href = element.href.replaceAll("18072458088", "18072458099");
       }
     });
     const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     let textNode;
     while ((textNode = textWalker.nextNode())) {
-      textNode.nodeValue = textNode.nodeValue.replaceAll("18072458088", "18072458000");
+      textNode.nodeValue = textNode.nodeValue.replaceAll("18072458088", "18072458099");
     }
   };
 

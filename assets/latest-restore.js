@@ -1048,6 +1048,42 @@
         color: currentColor !important;
         font-size: 9px !important;
       }
+      .service-brands-line {
+        display: flex !important;
+        align-items: baseline !important;
+        gap: 18px !important;
+        margin: 0 0 46px !important;
+        padding: 25px 0 0 !important;
+        border-top: 1px solid var(--line) !important;
+        color: #9c9aa4 !important;
+        font-size: clamp(15px, 1vw, 18px) !important;
+        line-height: 1.7 !important;
+        font-weight: 400 !important;
+        letter-spacing: .01em !important;
+      }
+      .service-brands-line span {
+        flex: 0 0 auto !important;
+        color: #ff7a18 !important;
+        font-size: 11px !important;
+        line-height: 1.2 !important;
+        font-weight: 600 !important;
+        letter-spacing: .02em !important;
+      }
+      .service-brands-line b {
+        color: #aaa8b1 !important;
+        font-weight: 400 !important;
+      }
+      @media (max-width: 720px) {
+        .service-brands-line {
+          display: block !important;
+          margin-bottom: 36px !important;
+          font-size: 14px !important;
+        }
+        .service-brands-line span {
+          display: block !important;
+          margin-bottom: 8px !important;
+        }
+      }
       .nav-skills-menu {
         position: fixed;
         width: 144px;
@@ -1238,6 +1274,21 @@
     portrait.dataset.portraitVersion = "blue-glasses-r2";
   };
 
+  const restoreServiceBrands = () => {
+    const details = document.querySelector(".profile-copy .details");
+    if (!details || details.dataset.serviceBrandsReady === VERSION) return;
+    details.dataset.serviceBrandsReady = VERSION;
+
+    let line = document.querySelector(".service-brands-line");
+    if (!line) {
+      line = document.createElement("div");
+      line.className = "service-brands-line";
+      line.innerHTML = "<span>服务品牌</span><b>宝岛 / 乔丹 / 柒牌 / new balance...</b>";
+    }
+
+    details.insertAdjacentElement("afterend", line);
+  };
+
   const enableAboutSkillLinks = () => {
     document.querySelectorAll(".about-skill-list li").forEach((item) => {
       const skill = (item.textContent || "").trim();
@@ -1340,6 +1391,7 @@
     restorePartnerLogos();
     restoreContactQr();
     restoreProfilePortrait();
+    restoreServiceBrands();
     enableAboutSkillLinks();
     enableSkillsMenu();
     document.querySelectorAll('a[href^="tel:"], [data-phone]').forEach((element) => {
